@@ -335,7 +335,9 @@ class UpdateInfoState extends State<UpdateInfo> {
                                                     potType == "Truncated Cone"
                                                 ? true
                                                 : false,
-                                            keyboardType: TextInputType.number,
+                                            keyboardType: const TextInputType
+                                                    .numberWithOptions(
+                                                decimal: true),
                                             inputFormatters: <
                                                 TextInputFormatter>[
                                               FilteringTextInputFormatter
@@ -390,7 +392,9 @@ class UpdateInfoState extends State<UpdateInfo> {
                                             enabled: potType == "Truncated Cone"
                                                 ? true
                                                 : false,
-                                            keyboardType: TextInputType.number,
+                                            keyboardType: const TextInputType
+                                                    .numberWithOptions(
+                                                decimal: true),
                                             inputFormatters: <
                                                 TextInputFormatter>[
                                               FilteringTextInputFormatter
@@ -449,7 +453,9 @@ class UpdateInfoState extends State<UpdateInfo> {
                                                     potType == "Box/Rectangle"
                                                 ? true
                                                 : false,
-                                            keyboardType: TextInputType.number,
+                                            keyboardType: const TextInputType
+                                                    .numberWithOptions(
+                                                decimal: true),
                                             inputFormatters: <
                                                 TextInputFormatter>[
                                               FilteringTextInputFormatter
@@ -513,7 +519,9 @@ class UpdateInfoState extends State<UpdateInfo> {
                                             enabled: potType == "Box/Rectangle"
                                                 ? true
                                                 : false,
-                                            keyboardType: TextInputType.number,
+                                            keyboardType: const TextInputType
+                                                    .numberWithOptions(
+                                                decimal: true),
                                             inputFormatters: <
                                                 TextInputFormatter>[
                                               FilteringTextInputFormatter
@@ -568,7 +576,9 @@ class UpdateInfoState extends State<UpdateInfo> {
                                             enabled: potType == "Box/Rectangle"
                                                 ? true
                                                 : false,
-                                            keyboardType: TextInputType.number,
+                                            keyboardType: const TextInputType
+                                                    .numberWithOptions(
+                                                decimal: true),
                                             inputFormatters: <
                                                 TextInputFormatter>[
                                               FilteringTextInputFormatter

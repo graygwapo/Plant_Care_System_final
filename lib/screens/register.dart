@@ -400,7 +400,8 @@ class MyCustomFormState extends State<MyCustomForm> {
                               _selectedPotType == "Truncated Cone"
                           ? true
                           : false,
-                      keyboardType: TextInputType.number,
+                      keyboardType:
+                          const TextInputType.numberWithOptions(decimal: true),
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
@@ -442,7 +443,8 @@ class MyCustomFormState extends State<MyCustomForm> {
                       controller: basedia,
                       enabled:
                           _selectedPotType == "Truncated Cone" ? true : false,
-                      keyboardType: TextInputType.number,
+                      keyboardType:
+                          const TextInputType.numberWithOptions(decimal: true),
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
@@ -486,7 +488,8 @@ class MyCustomFormState extends State<MyCustomForm> {
                               _selectedPotType == "Box/Rectangle"
                           ? true
                           : false,
-                      keyboardType: TextInputType.number,
+                      keyboardType:
+                          const TextInputType.numberWithOptions(decimal: true),
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
@@ -533,7 +536,8 @@ class MyCustomFormState extends State<MyCustomForm> {
                       controller: length,
                       enabled:
                           _selectedPotType == "Box/Rectangle" ? true : false,
-                      keyboardType: TextInputType.number,
+                      keyboardType:
+                          const TextInputType.numberWithOptions(decimal: true),
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
@@ -573,7 +577,8 @@ class MyCustomFormState extends State<MyCustomForm> {
                       controller: width,
                       enabled:
                           _selectedPotType == "Box/Rectangle" ? true : false,
-                      keyboardType: TextInputType.number,
+                      keyboardType:
+                          const TextInputType.numberWithOptions(decimal: true),
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],

@@ -204,6 +204,8 @@ class _GatheringScreenState extends State<GatheringScreen> {
                             '${data.docs[index]['HUMREC']}';
                         illuminationinfo = '${data.docs[index]['LIGHTREC']}';
 
+                        //fuzzy
+
                         return Center(
                           child: Column(children: [
                             Container(
@@ -681,22 +683,22 @@ class _GatheringScreenState extends State<GatheringScreen> {
   }
 
   locationIcon() {
-    if (temperature < mintemp && humidity < minhum) {
+    if (temperature <= mintemp && humidity <= minhum) {
       return const Color.fromARGB(255, 125, 46, 46);
-    } else if ((temperature > mintemp && temperature < maxtemp) &&
-        (humidity > minhum && humidity < maxhum)) {
+    } else if ((temperature >= mintemp && temperature <= maxtemp) &&
+        (humidity >= minhum && humidity <= maxhum)) {
       return const Color.fromARGB(255, 11, 121, 14);
-    } else if ((temperature < mintemp) &&
-        (humidity > minhum && humidity < maxhum)) {
+    } else if ((temperature <= mintemp) &&
+        (humidity >= minhum && humidity < maxhum)) {
       return const Color.fromARGB(255, 110, 121, 11);
-    } else if ((temperature > maxtemp) &&
-        (humidity > minhum && humidity < maxhum)) {
+    } else if ((temperature >= maxtemp) &&
+        (humidity >= minhum && humidity <= maxhum)) {
       return const Color.fromARGB(255, 110, 121, 11);
-    } else if ((temperature > mintemp && temperature < maxtemp) &&
-        (humidity < minhum)) {
+    } else if ((temperature >= mintemp && temperature <= maxtemp) &&
+        (humidity <= minhum)) {
       return const Color.fromARGB(255, 110, 121, 11);
-    } else if ((temperature > mintemp && temperature < maxtemp) &&
-        (humidity > maxhum)) {
+    } else if ((temperature >= mintemp && temperature <= maxtemp) &&
+        (humidity >= maxhum)) {
       return const Color.fromARGB(255, 110, 121, 11);
     } else {
       return const Color.fromARGB(255, 125, 46, 46);
@@ -704,21 +706,21 @@ class _GatheringScreenState extends State<GatheringScreen> {
   }
 
   locationContainer() {
-    if (temperature < mintemp && humidity < minhum) {
+    if (temperature <= mintemp && humidity <= minhum) {
       return const Color.fromARGB(255, 231, 138, 138);
-    } else if ((temperature > mintemp && temperature < maxtemp) &&
+    } else if ((temperature >= mintemp && temperature <= maxtemp) &&
         (humidity > minhum && humidity < maxhum)) {
       return const Color.fromARGB(255, 119, 217, 137);
-    } else if ((temperature < mintemp) &&
-        (humidity > minhum && humidity < maxhum)) {
+    } else if ((temperature <= mintemp) &&
+        (humidity >= minhum && humidity <= maxhum)) {
       return const Color.fromARGB(255, 210, 217, 119);
-    } else if ((temperature > maxtemp) &&
-        (humidity > minhum && humidity < maxhum)) {
+    } else if ((temperature >= maxtemp) &&
+        (humidity >= minhum && humidity <= maxhum)) {
       return const Color.fromARGB(255, 210, 217, 119);
-    } else if ((temperature > mintemp && temperature < maxtemp) &&
+    } else if ((temperature >= mintemp && temperature <= maxtemp) &&
         (humidity < minhum)) {
       return const Color.fromARGB(255, 210, 217, 119);
-    } else if ((temperature > mintemp && temperature < maxtemp) &&
+    } else if ((temperature >= mintemp && temperature <= maxtemp) &&
         (humidity > maxhum)) {
       return const Color.fromARGB(255, 210, 217, 119);
     } else {
@@ -728,9 +730,9 @@ class _GatheringScreenState extends State<GatheringScreen> {
 
   //Function to get color depending on the temperature
   Color getTempColor(double temperature) {
-    if (temperature < mintemp) {
+    if (temperature <= mintemp) {
       return Colors.orange;
-    } else if (temperature > mintemp && temperature < maxtemp) {
+    } else if (temperature >= mintemp && temperature <= maxtemp) {
       return Colors.blue;
     } else {
       return Colors.red;
@@ -739,9 +741,9 @@ class _GatheringScreenState extends State<GatheringScreen> {
 
   //Function to get color depending on the humidity
   Color getHumColor(double humidity) {
-    if (humidity < minhum) {
+    if (humidity <= minhum) {
       return Colors.orange;
-    } else if (humidity > minhum && humidity < maxhum) {
+    } else if (humidity >= minhum && humidity <= maxhum) {
       return Colors.blue;
     } else {
       return Colors.red;
@@ -750,9 +752,9 @@ class _GatheringScreenState extends State<GatheringScreen> {
 
   //Luminance
   Color luminanceIcon() {
-    if (lux < minlux) {
+    if (lux <= minlux) {
       return const Color.fromARGB(255, 125, 46, 46);
-    } else if (lux > minlux && lux < maxlux) {
+    } else if (lux >= minlux && lux <= maxlux) {
       return const Color.fromARGB(255, 11, 121, 14);
     } else {
       return const Color.fromARGB(255, 125, 46, 46);
@@ -760,9 +762,9 @@ class _GatheringScreenState extends State<GatheringScreen> {
   }
 
   Color luminanceContainer() {
-    if (lux < minlux) {
+    if (lux <= minlux) {
       return const Color.fromARGB(255, 231, 138, 138);
-    } else if (lux > minlux && lux < maxlux) {
+    } else if (lux >= minlux && lux <= maxlux) {
       return const Color.fromARGB(255, 119, 217, 137);
     } else {
       return const Color.fromARGB(255, 231, 138, 138);
@@ -770,9 +772,9 @@ class _GatheringScreenState extends State<GatheringScreen> {
   }
 
   String illuminationresult(double lux) {
-    if (lux < minlux) {
+    if (lux <= minlux) {
       return "Increase Light. ${widget.plantSpecie} needs atleast $neededlux lx more to grow at best condition.";
-    } else if (lux > minlux && lux < maxlux) {
+    } else if (lux >= minlux && lux <= maxlux) {
       // setState(() {
       //   isGood = true;
       // });
@@ -784,9 +786,9 @@ class _GatheringScreenState extends State<GatheringScreen> {
 
   //Function to get color depending on the lux
   Color getLightColor(double lux) {
-    if (lux < minlux) {
+    if (lux <= minlux) {
       return Colors.orange;
-    } else if (lux > minlux && lux < maxlux) {
+    } else if (lux >= minlux && lux <= maxlux) {
       return Colors.blue;
     } else {
       return Colors.red;
@@ -795,19 +797,22 @@ class _GatheringScreenState extends State<GatheringScreen> {
 
   solvePotVolume() {
     if (widget.potType == "Box/Rectangle") {
-      return (widget.potHeight * widget.potLength * widget.potWidth) *
-          ((100 - moisture) / 100);
+      return ((widget.potHeight * widget.potLength * widget.potWidth) *
+              ((100 - moisture) / 100))
+          .round();
     } else if (widget.potType == "Truncated Cone") {
-      return ((1 / 3) *
-              (3.14159 *
-                  widget.potHeight *
-                  (pow((widget.potTop / 2), 2) +
-                      (widget.potTop / 2) * (widget.potBase / 2) +
-                      pow((widget.potBase / 2), 2)))) *
-          ((100 - moisture) / 100);
+      return (((1 / 3) *
+                  (3.14159 *
+                      widget.potHeight *
+                      (pow((widget.potTop / 2), 2) +
+                          (widget.potTop / 2) * (widget.potBase / 2) +
+                          pow((widget.potBase / 2), 2)))) *
+              ((100 - moisture) / 100))
+          .round();
     } else if (widget.potType == "Round") {
-      return (3.14159 * (pow((widget.potTop / 2), 2)) * widget.potHeight) *
-          ((100 - moisture) / 100);
+      return ((3.14159 * (pow((widget.potTop / 2), 2)) * widget.potHeight) *
+              ((100 - moisture) / 100))
+          .round();
     } else {
       return 0.00;
     }
@@ -824,9 +829,9 @@ class _GatheringScreenState extends State<GatheringScreen> {
   }
 
   waterlevelIcon() {
-    if (moisture < minmst) {
+    if (moisture <= minmst) {
       return const Color.fromARGB(255, 125, 46, 46);
-    } else if (moisture > minmst && moisture < maxmst) {
+    } else if (moisture >= minmst && moisture <= maxmst) {
       return const Color.fromARGB(255, 11, 121, 14);
     } else {
       return const Color.fromARGB(255, 125, 46, 46);
@@ -834,9 +839,9 @@ class _GatheringScreenState extends State<GatheringScreen> {
   }
 
   waterlevelresult(double moisture) {
-    if (moisture < minmst) {
+    if (moisture <= minmst) {
       return "Low. You need to add atmost ${solvePotVolume()} ml  to reach $maxmst moisture which is the maximum recomended moisture for ${widget.plantSpecie}";
-    } else if (moisture > minmst && moisture < maxmst) {
+    } else if (moisture >= minmst && moisture <= maxmst) {
       return "Good. ${widget.plantSpecie} is having enough soil moisture";
     } else {
       return "Make sure you have placed the soil moisture in the pot.";
@@ -845,9 +850,9 @@ class _GatheringScreenState extends State<GatheringScreen> {
 
   //Function to get color depending on the moisture
   Color getMstColor(double moisture) {
-    if (moisture < minmst) {
+    if (moisture <= minmst) {
       return Colors.orange;
-    } else if (moisture > minmst && moisture < maxmst) {
+    } else if (moisture >= minmst && moisture <= maxmst) {
       return Colors.blue;
     } else {
       return Colors.red;

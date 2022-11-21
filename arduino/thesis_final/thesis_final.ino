@@ -4,7 +4,7 @@
 #include <SoftwareSerial.h>
 
 // Temperature and Humidity Sensor Pin
-#define DHT11_PIN 7
+#define DHT11_PIN 6
 
 
 // Bluetooth Serial to send and receive

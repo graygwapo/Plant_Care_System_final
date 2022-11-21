@@ -56,6 +56,7 @@ dependencies:
   permission_handler: ^10.2.0
   firebase_core_platform_interface: ^4.5.2
   firebase_messaging: ^14.1.0 # will satisfy your firebase core things that depend on ^4.5.1
+  fuzzylogic: ^0.2.2
   
 
 dev_dependencies:
