@@ -67,6 +67,468 @@ class _PlantInfoState extends State<PlantInfo> {
 
   @override
   Widget build(BuildContext context) {
+    //FUZZY
+// ignore: non_constant_identifier_names
+    var TempFz = FzTemp();
+// ignore: non_constant_identifier_names
+    var HumFz = FzHum();
+// ignore: non_constant_identifier_names
+    var LumFz = FzLum();
+// ignore: non_constant_identifier_names
+    var ETrans = ET();
+
+// Add rules.
+    var evatrans = FuzzyRuleBase();
+    evatrans.addRules([
+      //Lum1
+      (LumFz.lum1 & TempFz.temp1 & HumFz.hum6) >> (ETrans.et1),
+      (LumFz.lum1 & TempFz.temp1 & HumFz.hum5) >> (ETrans.et1),
+      (LumFz.lum1 & TempFz.temp1 & HumFz.hum4) >> (ETrans.et1),
+      (LumFz.lum1 & TempFz.temp1 & HumFz.hum3) >> (ETrans.et1),
+      (LumFz.lum1 & TempFz.temp1 & HumFz.hum2) >> (ETrans.et1),
+      (LumFz.lum1 & TempFz.temp1 & HumFz.hum1) >> (ETrans.et2),
+      (LumFz.lum1 & TempFz.temp2 & HumFz.hum6) >> (ETrans.et2),
+      (LumFz.lum1 & TempFz.temp2 & HumFz.hum5) >> (ETrans.et2),
+      (LumFz.lum1 & TempFz.temp2 & HumFz.hum4) >> (ETrans.et2),
+      (LumFz.lum1 & TempFz.temp2 & HumFz.hum3) >> (ETrans.et2),
+      (LumFz.lum1 & TempFz.temp2 & HumFz.hum2) >> (ETrans.et3),
+      (LumFz.lum1 & TempFz.temp2 & HumFz.hum1) >> (ETrans.et3),
+      (LumFz.lum1 & TempFz.temp3 & HumFz.hum6) >> (ETrans.et3),
+      (LumFz.lum1 & TempFz.temp3 & HumFz.hum5) >> (ETrans.et3),
+      (LumFz.lum1 & TempFz.temp3 & HumFz.hum4) >> (ETrans.et3),
+      (LumFz.lum1 & TempFz.temp3 & HumFz.hum3) >> (ETrans.et4),
+      (LumFz.lum1 & TempFz.temp3 & HumFz.hum2) >> (ETrans.et4),
+      (LumFz.lum1 & TempFz.temp3 & HumFz.hum1) >> (ETrans.et4),
+      (LumFz.lum1 & TempFz.temp4 & HumFz.hum6) >> (ETrans.et4),
+      (LumFz.lum1 & TempFz.temp4 & HumFz.hum5) >> (ETrans.et4),
+      (LumFz.lum1 & TempFz.temp4 & HumFz.hum4) >> (ETrans.et5),
+      (LumFz.lum1 & TempFz.temp4 & HumFz.hum3) >> (ETrans.et5),
+      (LumFz.lum1 & TempFz.temp4 & HumFz.hum2) >> (ETrans.et5),
+      (LumFz.lum1 & TempFz.temp4 & HumFz.hum1) >> (ETrans.et5),
+      (LumFz.lum1 & TempFz.temp5 & HumFz.hum6) >> (ETrans.et6),
+      (LumFz.lum1 & TempFz.temp5 & HumFz.hum5) >> (ETrans.et6),
+      (LumFz.lum1 & TempFz.temp5 & HumFz.hum4) >> (ETrans.et6),
+      (LumFz.lum1 & TempFz.temp5 & HumFz.hum3) >> (ETrans.et6),
+      (LumFz.lum1 & TempFz.temp5 & HumFz.hum2) >> (ETrans.et6),
+      (LumFz.lum1 & TempFz.temp5 & HumFz.hum1) >> (ETrans.et7),
+      (LumFz.lum1 & TempFz.temp6 & HumFz.hum6) >> (ETrans.et7),
+      (LumFz.lum1 & TempFz.temp6 & HumFz.hum5) >> (ETrans.et7),
+      (LumFz.lum1 & TempFz.temp6 & HumFz.hum4) >> (ETrans.et7),
+      (LumFz.lum1 & TempFz.temp6 & HumFz.hum3) >> (ETrans.et7),
+      (LumFz.lum1 & TempFz.temp6 & HumFz.hum2) >> (ETrans.et8),
+      (LumFz.lum1 & TempFz.temp6 & HumFz.hum1) >> (ETrans.et8),
+      (LumFz.lum1 & TempFz.temp7 & HumFz.hum6) >> (ETrans.et8),
+      (LumFz.lum1 & TempFz.temp7 & HumFz.hum5) >> (ETrans.et8),
+      (LumFz.lum1 & TempFz.temp7 & HumFz.hum4) >> (ETrans.et8),
+      (LumFz.lum1 & TempFz.temp7 & HumFz.hum3) >> (ETrans.et9),
+      (LumFz.lum1 & TempFz.temp7 & HumFz.hum2) >> (ETrans.et9),
+      (LumFz.lum1 & TempFz.temp7 & HumFz.hum1) >> (ETrans.et9),
+      (LumFz.lum1 & TempFz.temp8 & HumFz.hum6) >> (ETrans.et9),
+      (LumFz.lum1 & TempFz.temp8 & HumFz.hum5) >> (ETrans.et9),
+      (LumFz.lum1 & TempFz.temp8 & HumFz.hum4) >> (ETrans.et9),
+      (LumFz.lum1 & TempFz.temp8 & HumFz.hum3) >> (ETrans.et10),
+      (LumFz.lum1 & TempFz.temp8 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum1 & TempFz.temp8 & HumFz.hum1) >> (ETrans.et10),
+
+      //Lum 2
+      (LumFz.lum2 & TempFz.temp1 & HumFz.hum6) >> (ETrans.et1),
+      (LumFz.lum2 & TempFz.temp1 & HumFz.hum5) >> (ETrans.et1),
+      (LumFz.lum2 & TempFz.temp1 & HumFz.hum4) >> (ETrans.et1),
+      (LumFz.lum2 & TempFz.temp1 & HumFz.hum3) >> (ETrans.et1),
+      (LumFz.lum2 & TempFz.temp1 & HumFz.hum2) >> (ETrans.et1),
+      (LumFz.lum2 & TempFz.temp1 & HumFz.hum1) >> (ETrans.et2),
+      (LumFz.lum2 & TempFz.temp2 & HumFz.hum6) >> (ETrans.et2),
+      (LumFz.lum2 & TempFz.temp2 & HumFz.hum5) >> (ETrans.et2),
+      (LumFz.lum2 & TempFz.temp2 & HumFz.hum4) >> (ETrans.et2),
+      (LumFz.lum2 & TempFz.temp2 & HumFz.hum3) >> (ETrans.et2),
+      (LumFz.lum2 & TempFz.temp2 & HumFz.hum2) >> (ETrans.et3),
+      (LumFz.lum2 & TempFz.temp2 & HumFz.hum1) >> (ETrans.et3),
+      (LumFz.lum2 & TempFz.temp3 & HumFz.hum6) >> (ETrans.et3),
+      (LumFz.lum2 & TempFz.temp3 & HumFz.hum5) >> (ETrans.et3),
+      (LumFz.lum2 & TempFz.temp3 & HumFz.hum4) >> (ETrans.et3),
+      (LumFz.lum2 & TempFz.temp3 & HumFz.hum3) >> (ETrans.et4),
+      (LumFz.lum2 & TempFz.temp3 & HumFz.hum2) >> (ETrans.et4),
+      (LumFz.lum2 & TempFz.temp3 & HumFz.hum1) >> (ETrans.et4),
+      (LumFz.lum2 & TempFz.temp4 & HumFz.hum6) >> (ETrans.et4),
+      (LumFz.lum2 & TempFz.temp4 & HumFz.hum5) >> (ETrans.et5),
+      (LumFz.lum2 & TempFz.temp4 & HumFz.hum4) >> (ETrans.et5),
+      (LumFz.lum2 & TempFz.temp4 & HumFz.hum3) >> (ETrans.et5),
+      (LumFz.lum2 & TempFz.temp4 & HumFz.hum2) >> (ETrans.et5),
+      (LumFz.lum2 & TempFz.temp4 & HumFz.hum1) >> (ETrans.et5),
+      (LumFz.lum2 & TempFz.temp5 & HumFz.hum6) >> (ETrans.et6),
+      (LumFz.lum2 & TempFz.temp5 & HumFz.hum5) >> (ETrans.et6),
+      (LumFz.lum2 & TempFz.temp5 & HumFz.hum4) >> (ETrans.et6),
+      (LumFz.lum2 & TempFz.temp5 & HumFz.hum3) >> (ETrans.et6),
+      (LumFz.lum2 & TempFz.temp5 & HumFz.hum2) >> (ETrans.et6),
+      (LumFz.lum2 & TempFz.temp5 & HumFz.hum1) >> (ETrans.et7),
+      (LumFz.lum2 & TempFz.temp6 & HumFz.hum6) >> (ETrans.et7),
+      (LumFz.lum2 & TempFz.temp6 & HumFz.hum5) >> (ETrans.et7),
+      (LumFz.lum2 & TempFz.temp6 & HumFz.hum4) >> (ETrans.et7),
+      (LumFz.lum2 & TempFz.temp6 & HumFz.hum3) >> (ETrans.et7),
+      (LumFz.lum2 & TempFz.temp6 & HumFz.hum2) >> (ETrans.et8),
+      (LumFz.lum2 & TempFz.temp6 & HumFz.hum1) >> (ETrans.et8),
+      (LumFz.lum2 & TempFz.temp7 & HumFz.hum6) >> (ETrans.et8),
+      (LumFz.lum2 & TempFz.temp7 & HumFz.hum5) >> (ETrans.et8),
+      (LumFz.lum2 & TempFz.temp7 & HumFz.hum4) >> (ETrans.et8),
+      (LumFz.lum2 & TempFz.temp7 & HumFz.hum3) >> (ETrans.et9),
+      (LumFz.lum2 & TempFz.temp7 & HumFz.hum2) >> (ETrans.et9),
+      (LumFz.lum2 & TempFz.temp7 & HumFz.hum1) >> (ETrans.et9),
+      (LumFz.lum2 & TempFz.temp8 & HumFz.hum6) >> (ETrans.et9),
+      (LumFz.lum2 & TempFz.temp8 & HumFz.hum5) >> (ETrans.et9),
+      (LumFz.lum2 & TempFz.temp8 & HumFz.hum4) >> (ETrans.et9),
+      (LumFz.lum2 & TempFz.temp8 & HumFz.hum3) >> (ETrans.et10),
+      (LumFz.lum2 & TempFz.temp8 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum2 & TempFz.temp8 & HumFz.hum1) >> (ETrans.et10),
+
+      //Lum3
+      (LumFz.lum3 & TempFz.temp1 & HumFz.hum6) >> (ETrans.et1),
+      (LumFz.lum3 & TempFz.temp1 & HumFz.hum5) >> (ETrans.et1),
+      (LumFz.lum3 & TempFz.temp1 & HumFz.hum4) >> (ETrans.et1),
+      (LumFz.lum3 & TempFz.temp1 & HumFz.hum3) >> (ETrans.et1),
+      (LumFz.lum3 & TempFz.temp1 & HumFz.hum2) >> (ETrans.et1),
+      (LumFz.lum3 & TempFz.temp1 & HumFz.hum1) >> (ETrans.et2),
+      (LumFz.lum3 & TempFz.temp2 & HumFz.hum6) >> (ETrans.et2),
+      (LumFz.lum3 & TempFz.temp2 & HumFz.hum5) >> (ETrans.et2),
+      (LumFz.lum3 & TempFz.temp2 & HumFz.hum4) >> (ETrans.et2),
+      (LumFz.lum3 & TempFz.temp2 & HumFz.hum3) >> (ETrans.et2),
+      (LumFz.lum3 & TempFz.temp2 & HumFz.hum2) >> (ETrans.et3),
+      (LumFz.lum3 & TempFz.temp2 & HumFz.hum1) >> (ETrans.et3),
+      (LumFz.lum3 & TempFz.temp3 & HumFz.hum6) >> (ETrans.et3),
+      (LumFz.lum3 & TempFz.temp3 & HumFz.hum5) >> (ETrans.et3),
+      (LumFz.lum3 & TempFz.temp3 & HumFz.hum4) >> (ETrans.et3),
+      (LumFz.lum3 & TempFz.temp3 & HumFz.hum3) >> (ETrans.et4),
+      (LumFz.lum3 & TempFz.temp3 & HumFz.hum2) >> (ETrans.et4),
+      (LumFz.lum3 & TempFz.temp3 & HumFz.hum1) >> (ETrans.et4),
+      (LumFz.lum3 & TempFz.temp4 & HumFz.hum6) >> (ETrans.et4),
+      (LumFz.lum3 & TempFz.temp4 & HumFz.hum5) >> (ETrans.et5),
+      (LumFz.lum3 & TempFz.temp4 & HumFz.hum4) >> (ETrans.et5),
+      (LumFz.lum3 & TempFz.temp4 & HumFz.hum3) >> (ETrans.et5),
+      (LumFz.lum3 & TempFz.temp4 & HumFz.hum2) >> (ETrans.et5),
+      (LumFz.lum3 & TempFz.temp4 & HumFz.hum1) >> (ETrans.et5),
+      (LumFz.lum3 & TempFz.temp5 & HumFz.hum6) >> (ETrans.et6),
+      (LumFz.lum3 & TempFz.temp5 & HumFz.hum5) >> (ETrans.et6),
+      (LumFz.lum3 & TempFz.temp5 & HumFz.hum4) >> (ETrans.et6),
+      (LumFz.lum3 & TempFz.temp5 & HumFz.hum3) >> (ETrans.et6),
+      (LumFz.lum3 & TempFz.temp5 & HumFz.hum2) >> (ETrans.et6),
+      (LumFz.lum3 & TempFz.temp5 & HumFz.hum1) >> (ETrans.et7),
+      (LumFz.lum3 & TempFz.temp6 & HumFz.hum6) >> (ETrans.et7),
+      (LumFz.lum3 & TempFz.temp6 & HumFz.hum5) >> (ETrans.et7),
+      (LumFz.lum3 & TempFz.temp6 & HumFz.hum4) >> (ETrans.et7),
+      (LumFz.lum3 & TempFz.temp6 & HumFz.hum3) >> (ETrans.et7),
+      (LumFz.lum3 & TempFz.temp6 & HumFz.hum2) >> (ETrans.et8),
+      (LumFz.lum3 & TempFz.temp6 & HumFz.hum1) >> (ETrans.et8),
+      (LumFz.lum3 & TempFz.temp7 & HumFz.hum6) >> (ETrans.et8),
+      (LumFz.lum3 & TempFz.temp7 & HumFz.hum5) >> (ETrans.et8),
+      (LumFz.lum3 & TempFz.temp7 & HumFz.hum4) >> (ETrans.et9),
+      (LumFz.lum3 & TempFz.temp7 & HumFz.hum3) >> (ETrans.et9),
+      (LumFz.lum3 & TempFz.temp7 & HumFz.hum2) >> (ETrans.et9),
+      (LumFz.lum3 & TempFz.temp7 & HumFz.hum1) >> (ETrans.et9),
+      (LumFz.lum3 & TempFz.temp8 & HumFz.hum6) >> (ETrans.et9),
+      (LumFz.lum3 & TempFz.temp8 & HumFz.hum5) >> (ETrans.et9),
+      (LumFz.lum3 & TempFz.temp8 & HumFz.hum4) >> (ETrans.et10),
+      (LumFz.lum3 & TempFz.temp8 & HumFz.hum3) >> (ETrans.et10),
+      (LumFz.lum3 & TempFz.temp8 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum3 & TempFz.temp8 & HumFz.hum1) >> (ETrans.et10),
+      //Lum4
+      (LumFz.lum4 & TempFz.temp1 & HumFz.hum6) >> (ETrans.et1),
+      (LumFz.lum4 & TempFz.temp1 & HumFz.hum5) >> (ETrans.et1),
+      (LumFz.lum4 & TempFz.temp1 & HumFz.hum4) >> (ETrans.et1),
+      (LumFz.lum4 & TempFz.temp1 & HumFz.hum3) >> (ETrans.et1),
+      (LumFz.lum4 & TempFz.temp1 & HumFz.hum2) >> (ETrans.et1),
+      (LumFz.lum4 & TempFz.temp1 & HumFz.hum1) >> (ETrans.et2),
+      (LumFz.lum4 & TempFz.temp2 & HumFz.hum6) >> (ETrans.et2),
+      (LumFz.lum4 & TempFz.temp2 & HumFz.hum5) >> (ETrans.et2),
+      (LumFz.lum4 & TempFz.temp2 & HumFz.hum4) >> (ETrans.et2),
+      (LumFz.lum4 & TempFz.temp2 & HumFz.hum3) >> (ETrans.et2),
+      (LumFz.lum4 & TempFz.temp2 & HumFz.hum2) >> (ETrans.et3),
+      (LumFz.lum4 & TempFz.temp2 & HumFz.hum1) >> (ETrans.et3),
+      (LumFz.lum4 & TempFz.temp3 & HumFz.hum6) >> (ETrans.et3),
+      (LumFz.lum4 & TempFz.temp3 & HumFz.hum5) >> (ETrans.et3),
+      (LumFz.lum4 & TempFz.temp3 & HumFz.hum4) >> (ETrans.et4),
+      (LumFz.lum4 & TempFz.temp3 & HumFz.hum3) >> (ETrans.et4),
+      (LumFz.lum4 & TempFz.temp3 & HumFz.hum2) >> (ETrans.et4),
+      (LumFz.lum4 & TempFz.temp3 & HumFz.hum1) >> (ETrans.et4),
+      (LumFz.lum4 & TempFz.temp4 & HumFz.hum6) >> (ETrans.et4),
+      (LumFz.lum4 & TempFz.temp4 & HumFz.hum5) >> (ETrans.et5),
+      (LumFz.lum4 & TempFz.temp4 & HumFz.hum4) >> (ETrans.et5),
+      (LumFz.lum4 & TempFz.temp4 & HumFz.hum3) >> (ETrans.et5),
+      (LumFz.lum4 & TempFz.temp4 & HumFz.hum2) >> (ETrans.et5),
+      (LumFz.lum4 & TempFz.temp4 & HumFz.hum1) >> (ETrans.et5),
+      (LumFz.lum4 & TempFz.temp5 & HumFz.hum6) >> (ETrans.et6),
+      (LumFz.lum4 & TempFz.temp5 & HumFz.hum5) >> (ETrans.et6),
+      (LumFz.lum4 & TempFz.temp5 & HumFz.hum4) >> (ETrans.et6),
+      (LumFz.lum4 & TempFz.temp5 & HumFz.hum3) >> (ETrans.et6),
+      (LumFz.lum4 & TempFz.temp5 & HumFz.hum2) >> (ETrans.et6),
+      (LumFz.lum4 & TempFz.temp5 & HumFz.hum1) >> (ETrans.et7),
+      (LumFz.lum4 & TempFz.temp6 & HumFz.hum6) >> (ETrans.et7),
+      (LumFz.lum4 & TempFz.temp6 & HumFz.hum5) >> (ETrans.et7),
+      (LumFz.lum4 & TempFz.temp6 & HumFz.hum4) >> (ETrans.et7),
+      (LumFz.lum4 & TempFz.temp6 & HumFz.hum3) >> (ETrans.et7),
+      (LumFz.lum4 & TempFz.temp6 & HumFz.hum2) >> (ETrans.et8),
+      (LumFz.lum4 & TempFz.temp6 & HumFz.hum1) >> (ETrans.et8),
+      (LumFz.lum4 & TempFz.temp7 & HumFz.hum6) >> (ETrans.et8),
+      (LumFz.lum4 & TempFz.temp7 & HumFz.hum5) >> (ETrans.et8),
+      (LumFz.lum4 & TempFz.temp7 & HumFz.hum4) >> (ETrans.et9),
+      (LumFz.lum4 & TempFz.temp7 & HumFz.hum3) >> (ETrans.et9),
+      (LumFz.lum4 & TempFz.temp7 & HumFz.hum2) >> (ETrans.et9),
+      (LumFz.lum4 & TempFz.temp7 & HumFz.hum1) >> (ETrans.et9),
+      (LumFz.lum4 & TempFz.temp8 & HumFz.hum6) >> (ETrans.et9),
+      (LumFz.lum4 & TempFz.temp8 & HumFz.hum5) >> (ETrans.et9),
+      (LumFz.lum4 & TempFz.temp8 & HumFz.hum4) >> (ETrans.et10),
+      (LumFz.lum4 & TempFz.temp8 & HumFz.hum3) >> (ETrans.et10),
+      (LumFz.lum4 & TempFz.temp8 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum4 & TempFz.temp8 & HumFz.hum1) >> (ETrans.et10),
+
+      //Lum5
+      (LumFz.lum5 & TempFz.temp1 & HumFz.hum6) >> (ETrans.et1),
+      (LumFz.lum5 & TempFz.temp1 & HumFz.hum5) >> (ETrans.et1),
+      (LumFz.lum5 & TempFz.temp1 & HumFz.hum4) >> (ETrans.et1),
+      (LumFz.lum5 & TempFz.temp1 & HumFz.hum3) >> (ETrans.et1),
+      (LumFz.lum5 & TempFz.temp1 & HumFz.hum2) >> (ETrans.et1),
+      (LumFz.lum5 & TempFz.temp1 & HumFz.hum1) >> (ETrans.et2),
+      (LumFz.lum5 & TempFz.temp2 & HumFz.hum6) >> (ETrans.et2),
+      (LumFz.lum5 & TempFz.temp2 & HumFz.hum5) >> (ETrans.et2),
+      (LumFz.lum5 & TempFz.temp2 & HumFz.hum4) >> (ETrans.et2),
+      (LumFz.lum5 & TempFz.temp2 & HumFz.hum3) >> (ETrans.et2),
+      (LumFz.lum5 & TempFz.temp2 & HumFz.hum2) >> (ETrans.et3),
+      (LumFz.lum5 & TempFz.temp2 & HumFz.hum1) >> (ETrans.et3),
+      (LumFz.lum5 & TempFz.temp3 & HumFz.hum6) >> (ETrans.et3),
+      (LumFz.lum5 & TempFz.temp3 & HumFz.hum5) >> (ETrans.et3),
+      (LumFz.lum5 & TempFz.temp3 & HumFz.hum4) >> (ETrans.et4),
+      (LumFz.lum5 & TempFz.temp3 & HumFz.hum3) >> (ETrans.et4),
+      (LumFz.lum5 & TempFz.temp3 & HumFz.hum2) >> (ETrans.et4),
+      (LumFz.lum5 & TempFz.temp3 & HumFz.hum1) >> (ETrans.et4),
+      (LumFz.lum5 & TempFz.temp4 & HumFz.hum6) >> (ETrans.et4),
+      (LumFz.lum5 & TempFz.temp4 & HumFz.hum5) >> (ETrans.et5),
+      (LumFz.lum5 & TempFz.temp4 & HumFz.hum4) >> (ETrans.et5),
+      (LumFz.lum5 & TempFz.temp4 & HumFz.hum3) >> (ETrans.et5),
+      (LumFz.lum5 & TempFz.temp4 & HumFz.hum2) >> (ETrans.et5),
+      (LumFz.lum5 & TempFz.temp4 & HumFz.hum1) >> (ETrans.et6),
+      (LumFz.lum5 & TempFz.temp5 & HumFz.hum6) >> (ETrans.et6),
+      (LumFz.lum5 & TempFz.temp5 & HumFz.hum5) >> (ETrans.et6),
+      (LumFz.lum5 & TempFz.temp5 & HumFz.hum4) >> (ETrans.et6),
+      (LumFz.lum5 & TempFz.temp5 & HumFz.hum3) >> (ETrans.et7),
+      (LumFz.lum5 & TempFz.temp5 & HumFz.hum2) >> (ETrans.et7),
+      (LumFz.lum5 & TempFz.temp5 & HumFz.hum1) >> (ETrans.et7),
+      (LumFz.lum5 & TempFz.temp6 & HumFz.hum6) >> (ETrans.et7),
+      (LumFz.lum5 & TempFz.temp6 & HumFz.hum5) >> (ETrans.et8),
+      (LumFz.lum5 & TempFz.temp6 & HumFz.hum4) >> (ETrans.et8),
+      (LumFz.lum5 & TempFz.temp6 & HumFz.hum3) >> (ETrans.et8),
+      (LumFz.lum5 & TempFz.temp6 & HumFz.hum2) >> (ETrans.et8),
+      (LumFz.lum5 & TempFz.temp6 & HumFz.hum1) >> (ETrans.et8),
+      (LumFz.lum5 & TempFz.temp7 & HumFz.hum6) >> (ETrans.et9),
+      (LumFz.lum5 & TempFz.temp7 & HumFz.hum5) >> (ETrans.et9),
+      (LumFz.lum5 & TempFz.temp7 & HumFz.hum4) >> (ETrans.et9),
+      (LumFz.lum5 & TempFz.temp7 & HumFz.hum3) >> (ETrans.et9),
+      (LumFz.lum5 & TempFz.temp7 & HumFz.hum2) >> (ETrans.et9),
+      (LumFz.lum5 & TempFz.temp7 & HumFz.hum1) >> (ETrans.et10),
+      (LumFz.lum5 & TempFz.temp8 & HumFz.hum6) >> (ETrans.et10),
+      (LumFz.lum5 & TempFz.temp8 & HumFz.hum5) >> (ETrans.et10),
+      (LumFz.lum5 & TempFz.temp8 & HumFz.hum4) >> (ETrans.et10),
+      (LumFz.lum5 & TempFz.temp8 & HumFz.hum3) >> (ETrans.et10),
+      (LumFz.lum5 & TempFz.temp8 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum5 & TempFz.temp8 & HumFz.hum1) >> (ETrans.et10),
+
+      //Lum6
+      (LumFz.lum6 & TempFz.temp1 & HumFz.hum6) >> (ETrans.et1),
+      (LumFz.lum6 & TempFz.temp1 & HumFz.hum5) >> (ETrans.et1),
+      (LumFz.lum6 & TempFz.temp1 & HumFz.hum4) >> (ETrans.et1),
+      (LumFz.lum6 & TempFz.temp1 & HumFz.hum3) >> (ETrans.et1),
+      (LumFz.lum6 & TempFz.temp1 & HumFz.hum2) >> (ETrans.et1),
+      (LumFz.lum6 & TempFz.temp1 & HumFz.hum1) >> (ETrans.et2),
+      (LumFz.lum6 & TempFz.temp2 & HumFz.hum6) >> (ETrans.et2),
+      (LumFz.lum6 & TempFz.temp2 & HumFz.hum5) >> (ETrans.et2),
+      (LumFz.lum6 & TempFz.temp2 & HumFz.hum4) >> (ETrans.et2),
+      (LumFz.lum6 & TempFz.temp2 & HumFz.hum3) >> (ETrans.et2),
+      (LumFz.lum6 & TempFz.temp2 & HumFz.hum2) >> (ETrans.et3),
+      (LumFz.lum6 & TempFz.temp2 & HumFz.hum1) >> (ETrans.et3),
+      (LumFz.lum6 & TempFz.temp3 & HumFz.hum6) >> (ETrans.et3),
+      (LumFz.lum6 & TempFz.temp3 & HumFz.hum5) >> (ETrans.et3),
+      (LumFz.lum6 & TempFz.temp3 & HumFz.hum4) >> (ETrans.et4),
+      (LumFz.lum6 & TempFz.temp3 & HumFz.hum3) >> (ETrans.et4),
+      (LumFz.lum6 & TempFz.temp3 & HumFz.hum2) >> (ETrans.et4),
+      (LumFz.lum6 & TempFz.temp3 & HumFz.hum1) >> (ETrans.et4),
+      (LumFz.lum6 & TempFz.temp4 & HumFz.hum6) >> (ETrans.et4),
+      (LumFz.lum6 & TempFz.temp4 & HumFz.hum5) >> (ETrans.et5),
+      (LumFz.lum6 & TempFz.temp4 & HumFz.hum4) >> (ETrans.et5),
+      (LumFz.lum6 & TempFz.temp4 & HumFz.hum3) >> (ETrans.et5),
+      (LumFz.lum6 & TempFz.temp4 & HumFz.hum2) >> (ETrans.et5),
+      (LumFz.lum6 & TempFz.temp4 & HumFz.hum1) >> (ETrans.et5),
+      (LumFz.lum6 & TempFz.temp5 & HumFz.hum6) >> (ETrans.et6),
+      (LumFz.lum6 & TempFz.temp5 & HumFz.hum5) >> (ETrans.et6),
+      (LumFz.lum6 & TempFz.temp5 & HumFz.hum4) >> (ETrans.et6),
+      (LumFz.lum6 & TempFz.temp5 & HumFz.hum3) >> (ETrans.et7),
+      (LumFz.lum6 & TempFz.temp5 & HumFz.hum2) >> (ETrans.et7),
+      (LumFz.lum6 & TempFz.temp5 & HumFz.hum1) >> (ETrans.et7),
+      (LumFz.lum6 & TempFz.temp6 & HumFz.hum6) >> (ETrans.et8),
+      (LumFz.lum6 & TempFz.temp6 & HumFz.hum5) >> (ETrans.et8),
+      (LumFz.lum6 & TempFz.temp6 & HumFz.hum4) >> (ETrans.et8),
+      (LumFz.lum6 & TempFz.temp6 & HumFz.hum3) >> (ETrans.et8),
+      (LumFz.lum6 & TempFz.temp6 & HumFz.hum2) >> (ETrans.et8),
+      (LumFz.lum6 & TempFz.temp6 & HumFz.hum1) >> (ETrans.et9),
+      (LumFz.lum6 & TempFz.temp7 & HumFz.hum6) >> (ETrans.et9),
+      (LumFz.lum6 & TempFz.temp7 & HumFz.hum5) >> (ETrans.et9),
+      (LumFz.lum6 & TempFz.temp7 & HumFz.hum4) >> (ETrans.et9),
+      (LumFz.lum6 & TempFz.temp7 & HumFz.hum3) >> (ETrans.et9),
+      (LumFz.lum6 & TempFz.temp7 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum6 & TempFz.temp7 & HumFz.hum1) >> (ETrans.et10),
+      (LumFz.lum6 & TempFz.temp8 & HumFz.hum6) >> (ETrans.et10),
+      (LumFz.lum6 & TempFz.temp8 & HumFz.hum5) >> (ETrans.et10),
+      (LumFz.lum6 & TempFz.temp8 & HumFz.hum4) >> (ETrans.et10),
+      (LumFz.lum6 & TempFz.temp8 & HumFz.hum3) >> (ETrans.et10),
+      (LumFz.lum6 & TempFz.temp8 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum6 & TempFz.temp8 & HumFz.hum1) >> (ETrans.et10),
+
+      //Lum7
+      (LumFz.lum7 & TempFz.temp1 & HumFz.hum6) >> (ETrans.et1),
+      (LumFz.lum7 & TempFz.temp1 & HumFz.hum5) >> (ETrans.et1),
+      (LumFz.lum7 & TempFz.temp1 & HumFz.hum4) >> (ETrans.et1),
+      (LumFz.lum7 & TempFz.temp1 & HumFz.hum3) >> (ETrans.et1),
+      (LumFz.lum7 & TempFz.temp1 & HumFz.hum2) >> (ETrans.et1),
+      (LumFz.lum7 & TempFz.temp1 & HumFz.hum1) >> (ETrans.et2),
+      (LumFz.lum7 & TempFz.temp2 & HumFz.hum6) >> (ETrans.et2),
+      (LumFz.lum7 & TempFz.temp2 & HumFz.hum5) >> (ETrans.et2),
+      (LumFz.lum7 & TempFz.temp2 & HumFz.hum4) >> (ETrans.et2),
+      (LumFz.lum7 & TempFz.temp2 & HumFz.hum3) >> (ETrans.et2),
+      (LumFz.lum7 & TempFz.temp2 & HumFz.hum2) >> (ETrans.et3),
+      (LumFz.lum7 & TempFz.temp2 & HumFz.hum1) >> (ETrans.et3),
+      (LumFz.lum7 & TempFz.temp3 & HumFz.hum6) >> (ETrans.et3),
+      (LumFz.lum7 & TempFz.temp3 & HumFz.hum5) >> (ETrans.et3),
+      (LumFz.lum7 & TempFz.temp3 & HumFz.hum4) >> (ETrans.et4),
+      (LumFz.lum7 & TempFz.temp3 & HumFz.hum3) >> (ETrans.et4),
+      (LumFz.lum7 & TempFz.temp3 & HumFz.hum2) >> (ETrans.et4),
+      (LumFz.lum7 & TempFz.temp3 & HumFz.hum1) >> (ETrans.et4),
+      (LumFz.lum7 & TempFz.temp4 & HumFz.hum6) >> (ETrans.et4),
+      (LumFz.lum7 & TempFz.temp4 & HumFz.hum5) >> (ETrans.et5),
+      (LumFz.lum7 & TempFz.temp4 & HumFz.hum4) >> (ETrans.et5),
+      (LumFz.lum7 & TempFz.temp4 & HumFz.hum3) >> (ETrans.et5),
+      (LumFz.lum7 & TempFz.temp4 & HumFz.hum2) >> (ETrans.et5),
+      (LumFz.lum7 & TempFz.temp4 & HumFz.hum1) >> (ETrans.et5),
+      (LumFz.lum7 & TempFz.temp5 & HumFz.hum6) >> (ETrans.et6),
+      (LumFz.lum7 & TempFz.temp5 & HumFz.hum5) >> (ETrans.et6),
+      (LumFz.lum7 & TempFz.temp5 & HumFz.hum4) >> (ETrans.et6),
+      (LumFz.lum7 & TempFz.temp5 & HumFz.hum3) >> (ETrans.et7),
+      (LumFz.lum7 & TempFz.temp5 & HumFz.hum2) >> (ETrans.et7),
+      (LumFz.lum7 & TempFz.temp5 & HumFz.hum1) >> (ETrans.et7),
+      (LumFz.lum7 & TempFz.temp6 & HumFz.hum6) >> (ETrans.et8),
+      (LumFz.lum7 & TempFz.temp6 & HumFz.hum5) >> (ETrans.et8),
+      (LumFz.lum7 & TempFz.temp6 & HumFz.hum4) >> (ETrans.et8),
+      (LumFz.lum7 & TempFz.temp6 & HumFz.hum3) >> (ETrans.et8),
+      (LumFz.lum7 & TempFz.temp6 & HumFz.hum2) >> (ETrans.et9),
+      (LumFz.lum7 & TempFz.temp6 & HumFz.hum1) >> (ETrans.et9),
+      (LumFz.lum7 & TempFz.temp7 & HumFz.hum6) >> (ETrans.et9),
+      (LumFz.lum7 & TempFz.temp7 & HumFz.hum5) >> (ETrans.et9),
+      (LumFz.lum7 & TempFz.temp7 & HumFz.hum4) >> (ETrans.et9),
+      (LumFz.lum7 & TempFz.temp7 & HumFz.hum3) >> (ETrans.et9),
+      (LumFz.lum7 & TempFz.temp7 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum7 & TempFz.temp7 & HumFz.hum1) >> (ETrans.et10),
+      (LumFz.lum7 & TempFz.temp8 & HumFz.hum6) >> (ETrans.et10),
+      (LumFz.lum7 & TempFz.temp8 & HumFz.hum5) >> (ETrans.et10),
+      (LumFz.lum7 & TempFz.temp8 & HumFz.hum4) >> (ETrans.et10),
+      (LumFz.lum7 & TempFz.temp8 & HumFz.hum3) >> (ETrans.et10),
+      (LumFz.lum7 & TempFz.temp8 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum7 & TempFz.temp8 & HumFz.hum1) >> (ETrans.et10),
+
+      //Lum8
+      (LumFz.lum8 & TempFz.temp1 & HumFz.hum6) >> (ETrans.et1),
+      (LumFz.lum8 & TempFz.temp1 & HumFz.hum5) >> (ETrans.et1),
+      (LumFz.lum8 & TempFz.temp1 & HumFz.hum4) >> (ETrans.et1),
+      (LumFz.lum8 & TempFz.temp1 & HumFz.hum3) >> (ETrans.et1),
+      (LumFz.lum8 & TempFz.temp1 & HumFz.hum2) >> (ETrans.et1),
+      (LumFz.lum8 & TempFz.temp1 & HumFz.hum1) >> (ETrans.et2),
+      (LumFz.lum8 & TempFz.temp2 & HumFz.hum6) >> (ETrans.et2),
+      (LumFz.lum8 & TempFz.temp2 & HumFz.hum5) >> (ETrans.et2),
+      (LumFz.lum8 & TempFz.temp2 & HumFz.hum4) >> (ETrans.et2),
+      (LumFz.lum8 & TempFz.temp2 & HumFz.hum3) >> (ETrans.et2),
+      (LumFz.lum8 & TempFz.temp2 & HumFz.hum2) >> (ETrans.et3),
+      (LumFz.lum8 & TempFz.temp2 & HumFz.hum1) >> (ETrans.et3),
+      (LumFz.lum8 & TempFz.temp3 & HumFz.hum6) >> (ETrans.et3),
+      (LumFz.lum8 & TempFz.temp3 & HumFz.hum5) >> (ETrans.et3),
+      (LumFz.lum8 & TempFz.temp3 & HumFz.hum4) >> (ETrans.et4),
+      (LumFz.lum8 & TempFz.temp3 & HumFz.hum3) >> (ETrans.et4),
+      (LumFz.lum8 & TempFz.temp3 & HumFz.hum2) >> (ETrans.et4),
+      (LumFz.lum8 & TempFz.temp3 & HumFz.hum1) >> (ETrans.et4),
+      (LumFz.lum8 & TempFz.temp4 & HumFz.hum6) >> (ETrans.et4),
+      (LumFz.lum8 & TempFz.temp4 & HumFz.hum5) >> (ETrans.et5),
+      (LumFz.lum8 & TempFz.temp4 & HumFz.hum4) >> (ETrans.et5),
+      (LumFz.lum8 & TempFz.temp4 & HumFz.hum3) >> (ETrans.et5),
+      (LumFz.lum8 & TempFz.temp4 & HumFz.hum2) >> (ETrans.et5),
+      (LumFz.lum8 & TempFz.temp4 & HumFz.hum1) >> (ETrans.et5),
+      (LumFz.lum8 & TempFz.temp5 & HumFz.hum6) >> (ETrans.et6),
+      (LumFz.lum8 & TempFz.temp5 & HumFz.hum5) >> (ETrans.et6),
+      (LumFz.lum8 & TempFz.temp5 & HumFz.hum4) >> (ETrans.et6),
+      (LumFz.lum8 & TempFz.temp5 & HumFz.hum3) >> (ETrans.et7),
+      (LumFz.lum8 & TempFz.temp5 & HumFz.hum2) >> (ETrans.et7),
+      (LumFz.lum8 & TempFz.temp5 & HumFz.hum1) >> (ETrans.et7),
+      (LumFz.lum8 & TempFz.temp6 & HumFz.hum6) >> (ETrans.et8),
+      (LumFz.lum8 & TempFz.temp6 & HumFz.hum5) >> (ETrans.et8),
+      (LumFz.lum8 & TempFz.temp6 & HumFz.hum4) >> (ETrans.et9),
+      (LumFz.lum8 & TempFz.temp6 & HumFz.hum3) >> (ETrans.et9),
+      (LumFz.lum8 & TempFz.temp6 & HumFz.hum2) >> (ETrans.et9),
+      (LumFz.lum8 & TempFz.temp6 & HumFz.hum1) >> (ETrans.et9),
+      (LumFz.lum8 & TempFz.temp7 & HumFz.hum6) >> (ETrans.et9),
+      (LumFz.lum8 & TempFz.temp7 & HumFz.hum5) >> (ETrans.et9),
+      (LumFz.lum8 & TempFz.temp7 & HumFz.hum4) >> (ETrans.et10),
+      (LumFz.lum8 & TempFz.temp7 & HumFz.hum3) >> (ETrans.et10),
+      (LumFz.lum8 & TempFz.temp7 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum8 & TempFz.temp7 & HumFz.hum1) >> (ETrans.et10),
+      (LumFz.lum8 & TempFz.temp8 & HumFz.hum6) >> (ETrans.et10),
+      (LumFz.lum8 & TempFz.temp8 & HumFz.hum5) >> (ETrans.et10),
+      (LumFz.lum8 & TempFz.temp8 & HumFz.hum4) >> (ETrans.et10),
+      (LumFz.lum8 & TempFz.temp8 & HumFz.hum3) >> (ETrans.et10),
+      (LumFz.lum8 & TempFz.temp8 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum8 & TempFz.temp8 & HumFz.hum1) >> (ETrans.et10),
+
+      //Lum9
+      (LumFz.lum9 & TempFz.temp1 & HumFz.hum6) >> (ETrans.et1),
+      (LumFz.lum9 & TempFz.temp1 & HumFz.hum5) >> (ETrans.et1),
+      (LumFz.lum9 & TempFz.temp1 & HumFz.hum4) >> (ETrans.et1),
+      (LumFz.lum9 & TempFz.temp1 & HumFz.hum3) >> (ETrans.et1),
+      (LumFz.lum9 & TempFz.temp1 & HumFz.hum2) >> (ETrans.et1),
+      (LumFz.lum9 & TempFz.temp1 & HumFz.hum1) >> (ETrans.et2),
+      (LumFz.lum9 & TempFz.temp2 & HumFz.hum6) >> (ETrans.et2),
+      (LumFz.lum9 & TempFz.temp2 & HumFz.hum5) >> (ETrans.et2),
+      (LumFz.lum9 & TempFz.temp2 & HumFz.hum4) >> (ETrans.et2),
+      (LumFz.lum9 & TempFz.temp2 & HumFz.hum3) >> (ETrans.et2),
+      (LumFz.lum9 & TempFz.temp2 & HumFz.hum2) >> (ETrans.et3),
+      (LumFz.lum9 & TempFz.temp2 & HumFz.hum1) >> (ETrans.et3),
+      (LumFz.lum9 & TempFz.temp3 & HumFz.hum6) >> (ETrans.et3),
+      (LumFz.lum9 & TempFz.temp3 & HumFz.hum5) >> (ETrans.et3),
+      (LumFz.lum9 & TempFz.temp3 & HumFz.hum4) >> (ETrans.et4),
+      (LumFz.lum9 & TempFz.temp3 & HumFz.hum3) >> (ETrans.et4),
+      (LumFz.lum9 & TempFz.temp3 & HumFz.hum2) >> (ETrans.et4),
+      (LumFz.lum9 & TempFz.temp3 & HumFz.hum1) >> (ETrans.et4),
+      (LumFz.lum9 & TempFz.temp4 & HumFz.hum6) >> (ETrans.et4),
+      (LumFz.lum9 & TempFz.temp4 & HumFz.hum5) >> (ETrans.et5),
+      (LumFz.lum9 & TempFz.temp4 & HumFz.hum4) >> (ETrans.et5),
+      (LumFz.lum9 & TempFz.temp4 & HumFz.hum3) >> (ETrans.et5),
+      (LumFz.lum9 & TempFz.temp4 & HumFz.hum2) >> (ETrans.et6),
+      (LumFz.lum9 & TempFz.temp4 & HumFz.hum1) >> (ETrans.et6),
+      (LumFz.lum9 & TempFz.temp5 & HumFz.hum6) >> (ETrans.et6),
+      (LumFz.lum9 & TempFz.temp5 & HumFz.hum5) >> (ETrans.et7),
+      (LumFz.lum9 & TempFz.temp5 & HumFz.hum4) >> (ETrans.et7),
+      (LumFz.lum9 & TempFz.temp5 & HumFz.hum3) >> (ETrans.et7),
+      (LumFz.lum9 & TempFz.temp5 & HumFz.hum2) >> (ETrans.et7),
+      (LumFz.lum9 & TempFz.temp5 & HumFz.hum1) >> (ETrans.et8),
+      (LumFz.lum9 & TempFz.temp6 & HumFz.hum6) >> (ETrans.et8),
+      (LumFz.lum9 & TempFz.temp6 & HumFz.hum5) >> (ETrans.et8),
+      (LumFz.lum9 & TempFz.temp6 & HumFz.hum4) >> (ETrans.et8),
+      (LumFz.lum9 & TempFz.temp6 & HumFz.hum3) >> (ETrans.et9),
+      (LumFz.lum9 & TempFz.temp6 & HumFz.hum2) >> (ETrans.et9),
+      (LumFz.lum9 & TempFz.temp6 & HumFz.hum1) >> (ETrans.et9),
+      (LumFz.lum9 & TempFz.temp7 & HumFz.hum6) >> (ETrans.et9),
+      (LumFz.lum9 & TempFz.temp7 & HumFz.hum5) >> (ETrans.et9),
+      (LumFz.lum9 & TempFz.temp7 & HumFz.hum4) >> (ETrans.et10),
+      (LumFz.lum9 & TempFz.temp7 & HumFz.hum3) >> (ETrans.et10),
+      (LumFz.lum9 & TempFz.temp7 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum9 & TempFz.temp7 & HumFz.hum1) >> (ETrans.et10),
+      (LumFz.lum9 & TempFz.temp8 & HumFz.hum6) >> (ETrans.et10),
+      (LumFz.lum9 & TempFz.temp8 & HumFz.hum5) >> (ETrans.et10),
+      (LumFz.lum9 & TempFz.temp8 & HumFz.hum4) >> (ETrans.et10),
+      (LumFz.lum9 & TempFz.temp8 & HumFz.hum3) >> (ETrans.et10),
+      (LumFz.lum9 & TempFz.temp8 & HumFz.hum2) >> (ETrans.et10),
+      (LumFz.lum9 & TempFz.temp8 & HumFz.hum1) >> (ETrans.et10)
+    ]);
     return WillPopScope(
         onWillPop: () => Future.value(false),
         child: FlutterCloseAppPage(
@@ -139,8 +601,6 @@ class _PlantInfoState extends State<PlantInfo> {
                     return ListView.builder(
                       itemCount: data.size,
                       itemBuilder: (context, index) {
-                        double potHeight =
-                            double.parse('${data.docs[index]['Pot_Height']}');
                         double tempRecord =
                             double.parse('${data.docs[index]['Temp_Record']}');
                         double humRecord =
@@ -154,909 +614,14 @@ class _PlantInfoState extends State<PlantInfo> {
                             .toDate()
                             .toString());
 
-                        //FUZZY
-// ignore: non_constant_identifier_names
-                        var TempFz = FzTemp();
-// ignore: non_constant_identifier_names
-                        var HumFz = FzHum();
-// ignore: non_constant_identifier_names
-                        var LumFz = FzLum();
-// ignore: non_constant_identifier_names
-                        var ETrans = ET();
-
-// Add rules.
-                        var evatrans = FuzzyRuleBase();
-                        evatrans.addRules([
-                          //Lum1
-                          (LumFz.lum1 & TempFz.temp1 & HumFz.hum6) >>
-                              (ETrans.et1),
-                          (LumFz.lum1 & TempFz.temp1 & HumFz.hum5) >>
-                              (ETrans.et1),
-                          (LumFz.lum1 & TempFz.temp1 & HumFz.hum4) >>
-                              (ETrans.et1),
-                          (LumFz.lum1 & TempFz.temp1 & HumFz.hum3) >>
-                              (ETrans.et1),
-                          (LumFz.lum1 & TempFz.temp1 & HumFz.hum2) >>
-                              (ETrans.et1),
-                          (LumFz.lum1 & TempFz.temp1 & HumFz.hum1) >>
-                              (ETrans.et2),
-                          (LumFz.lum1 & TempFz.temp2 & HumFz.hum6) >>
-                              (ETrans.et2),
-                          (LumFz.lum1 & TempFz.temp2 & HumFz.hum5) >>
-                              (ETrans.et2),
-                          (LumFz.lum1 & TempFz.temp2 & HumFz.hum4) >>
-                              (ETrans.et2),
-                          (LumFz.lum1 & TempFz.temp2 & HumFz.hum3) >>
-                              (ETrans.et2),
-                          (LumFz.lum1 & TempFz.temp2 & HumFz.hum2) >>
-                              (ETrans.et3),
-                          (LumFz.lum1 & TempFz.temp2 & HumFz.hum1) >>
-                              (ETrans.et3),
-                          (LumFz.lum1 & TempFz.temp3 & HumFz.hum6) >>
-                              (ETrans.et3),
-                          (LumFz.lum1 & TempFz.temp3 & HumFz.hum5) >>
-                              (ETrans.et3),
-                          (LumFz.lum1 & TempFz.temp3 & HumFz.hum4) >>
-                              (ETrans.et3),
-                          (LumFz.lum1 & TempFz.temp3 & HumFz.hum3) >>
-                              (ETrans.et4),
-                          (LumFz.lum1 & TempFz.temp3 & HumFz.hum2) >>
-                              (ETrans.et4),
-                          (LumFz.lum1 & TempFz.temp3 & HumFz.hum1) >>
-                              (ETrans.et4),
-                          (LumFz.lum1 & TempFz.temp4 & HumFz.hum6) >>
-                              (ETrans.et4),
-                          (LumFz.lum1 & TempFz.temp4 & HumFz.hum5) >>
-                              (ETrans.et4),
-                          (LumFz.lum1 & TempFz.temp4 & HumFz.hum4) >>
-                              (ETrans.et5),
-                          (LumFz.lum1 & TempFz.temp4 & HumFz.hum3) >>
-                              (ETrans.et5),
-                          (LumFz.lum1 & TempFz.temp4 & HumFz.hum2) >>
-                              (ETrans.et5),
-                          (LumFz.lum1 & TempFz.temp4 & HumFz.hum1) >>
-                              (ETrans.et5),
-                          (LumFz.lum1 & TempFz.temp5 & HumFz.hum6) >>
-                              (ETrans.et6),
-                          (LumFz.lum1 & TempFz.temp5 & HumFz.hum5) >>
-                              (ETrans.et6),
-                          (LumFz.lum1 & TempFz.temp5 & HumFz.hum4) >>
-                              (ETrans.et6),
-                          (LumFz.lum1 & TempFz.temp5 & HumFz.hum3) >>
-                              (ETrans.et6),
-                          (LumFz.lum1 & TempFz.temp5 & HumFz.hum2) >>
-                              (ETrans.et6),
-                          (LumFz.lum1 & TempFz.temp5 & HumFz.hum1) >>
-                              (ETrans.et7),
-                          (LumFz.lum1 & TempFz.temp6 & HumFz.hum6) >>
-                              (ETrans.et7),
-                          (LumFz.lum1 & TempFz.temp6 & HumFz.hum5) >>
-                              (ETrans.et7),
-                          (LumFz.lum1 & TempFz.temp6 & HumFz.hum4) >>
-                              (ETrans.et7),
-                          (LumFz.lum1 & TempFz.temp6 & HumFz.hum3) >>
-                              (ETrans.et7),
-                          (LumFz.lum1 & TempFz.temp6 & HumFz.hum2) >>
-                              (ETrans.et8),
-                          (LumFz.lum1 & TempFz.temp6 & HumFz.hum1) >>
-                              (ETrans.et8),
-                          (LumFz.lum1 & TempFz.temp7 & HumFz.hum6) >>
-                              (ETrans.et8),
-                          (LumFz.lum1 & TempFz.temp7 & HumFz.hum5) >>
-                              (ETrans.et8),
-                          (LumFz.lum1 & TempFz.temp7 & HumFz.hum4) >>
-                              (ETrans.et8),
-                          (LumFz.lum1 & TempFz.temp7 & HumFz.hum3) >>
-                              (ETrans.et9),
-                          (LumFz.lum1 & TempFz.temp7 & HumFz.hum2) >>
-                              (ETrans.et9),
-                          (LumFz.lum1 & TempFz.temp7 & HumFz.hum1) >>
-                              (ETrans.et9),
-                          (LumFz.lum1 & TempFz.temp8 & HumFz.hum6) >>
-                              (ETrans.et9),
-                          (LumFz.lum1 & TempFz.temp8 & HumFz.hum5) >>
-                              (ETrans.et9),
-                          (LumFz.lum1 & TempFz.temp8 & HumFz.hum4) >>
-                              (ETrans.et9),
-                          (LumFz.lum1 & TempFz.temp8 & HumFz.hum3) >>
-                              (ETrans.et10),
-                          (LumFz.lum1 & TempFz.temp8 & HumFz.hum2) >>
-                              (ETrans.et10),
-                          (LumFz.lum1 & TempFz.temp8 & HumFz.hum1) >>
-                              (ETrans.et10),
-
-                          //Lum 2
-                          (LumFz.lum2 & TempFz.temp1 & HumFz.hum6) >>
-                              (ETrans.et1),
-                          (LumFz.lum2 & TempFz.temp1 & HumFz.hum5) >>
-                              (ETrans.et1),
-                          (LumFz.lum2 & TempFz.temp1 & HumFz.hum4) >>
-                              (ETrans.et1),
-                          (LumFz.lum2 & TempFz.temp1 & HumFz.hum3) >>
-                              (ETrans.et1),
-                          (LumFz.lum2 & TempFz.temp1 & HumFz.hum2) >>
-                              (ETrans.et1),
-                          (LumFz.lum2 & TempFz.temp1 & HumFz.hum1) >>
-                              (ETrans.et2),
-                          (LumFz.lum2 & TempFz.temp2 & HumFz.hum6) >>
-                              (ETrans.et2),
-                          (LumFz.lum2 & TempFz.temp2 & HumFz.hum5) >>
-                              (ETrans.et2),
-                          (LumFz.lum2 & TempFz.temp2 & HumFz.hum4) >>
-                              (ETrans.et2),
-                          (LumFz.lum2 & TempFz.temp2 & HumFz.hum3) >>
-                              (ETrans.et2),
-                          (LumFz.lum2 & TempFz.temp2 & HumFz.hum2) >>
-                              (ETrans.et3),
-                          (LumFz.lum2 & TempFz.temp2 & HumFz.hum1) >>
-                              (ETrans.et3),
-                          (LumFz.lum2 & TempFz.temp3 & HumFz.hum6) >>
-                              (ETrans.et3),
-                          (LumFz.lum2 & TempFz.temp3 & HumFz.hum5) >>
-                              (ETrans.et3),
-                          (LumFz.lum2 & TempFz.temp3 & HumFz.hum4) >>
-                              (ETrans.et3),
-                          (LumFz.lum2 & TempFz.temp3 & HumFz.hum3) >>
-                              (ETrans.et4),
-                          (LumFz.lum2 & TempFz.temp3 & HumFz.hum2) >>
-                              (ETrans.et4),
-                          (LumFz.lum2 & TempFz.temp3 & HumFz.hum1) >>
-                              (ETrans.et4),
-                          (LumFz.lum2 & TempFz.temp4 & HumFz.hum6) >>
-                              (ETrans.et4),
-                          (LumFz.lum2 & TempFz.temp4 & HumFz.hum5) >>
-                              (ETrans.et5),
-                          (LumFz.lum2 & TempFz.temp4 & HumFz.hum4) >>
-                              (ETrans.et5),
-                          (LumFz.lum2 & TempFz.temp4 & HumFz.hum3) >>
-                              (ETrans.et5),
-                          (LumFz.lum2 & TempFz.temp4 & HumFz.hum2) >>
-                              (ETrans.et5),
-                          (LumFz.lum2 & TempFz.temp4 & HumFz.hum1) >>
-                              (ETrans.et5),
-                          (LumFz.lum2 & TempFz.temp5 & HumFz.hum6) >>
-                              (ETrans.et6),
-                          (LumFz.lum2 & TempFz.temp5 & HumFz.hum5) >>
-                              (ETrans.et6),
-                          (LumFz.lum2 & TempFz.temp5 & HumFz.hum4) >>
-                              (ETrans.et6),
-                          (LumFz.lum2 & TempFz.temp5 & HumFz.hum3) >>
-                              (ETrans.et6),
-                          (LumFz.lum2 & TempFz.temp5 & HumFz.hum2) >>
-                              (ETrans.et6),
-                          (LumFz.lum2 & TempFz.temp5 & HumFz.hum1) >>
-                              (ETrans.et7),
-                          (LumFz.lum2 & TempFz.temp6 & HumFz.hum6) >>
-                              (ETrans.et7),
-                          (LumFz.lum2 & TempFz.temp6 & HumFz.hum5) >>
-                              (ETrans.et7),
-                          (LumFz.lum2 & TempFz.temp6 & HumFz.hum4) >>
-                              (ETrans.et7),
-                          (LumFz.lum2 & TempFz.temp6 & HumFz.hum3) >>
-                              (ETrans.et7),
-                          (LumFz.lum2 & TempFz.temp6 & HumFz.hum2) >>
-                              (ETrans.et8),
-                          (LumFz.lum2 & TempFz.temp6 & HumFz.hum1) >>
-                              (ETrans.et8),
-                          (LumFz.lum2 & TempFz.temp7 & HumFz.hum6) >>
-                              (ETrans.et8),
-                          (LumFz.lum2 & TempFz.temp7 & HumFz.hum5) >>
-                              (ETrans.et8),
-                          (LumFz.lum2 & TempFz.temp7 & HumFz.hum4) >>
-                              (ETrans.et8),
-                          (LumFz.lum2 & TempFz.temp7 & HumFz.hum3) >>
-                              (ETrans.et9),
-                          (LumFz.lum2 & TempFz.temp7 & HumFz.hum2) >>
-                              (ETrans.et9),
-                          (LumFz.lum2 & TempFz.temp7 & HumFz.hum1) >>
-                              (ETrans.et9),
-                          (LumFz.lum2 & TempFz.temp8 & HumFz.hum6) >>
-                              (ETrans.et9),
-                          (LumFz.lum2 & TempFz.temp8 & HumFz.hum5) >>
-                              (ETrans.et9),
-                          (LumFz.lum2 & TempFz.temp8 & HumFz.hum4) >>
-                              (ETrans.et9),
-                          (LumFz.lum2 & TempFz.temp8 & HumFz.hum3) >>
-                              (ETrans.et10),
-                          (LumFz.lum2 & TempFz.temp8 & HumFz.hum2) >>
-                              (ETrans.et10),
-                          (LumFz.lum2 & TempFz.temp8 & HumFz.hum1) >>
-                              (ETrans.et10),
-
-                          //Lum3
-                          (LumFz.lum3 & TempFz.temp1 & HumFz.hum6) >>
-                              (ETrans.et1),
-                          (LumFz.lum3 & TempFz.temp1 & HumFz.hum5) >>
-                              (ETrans.et1),
-                          (LumFz.lum3 & TempFz.temp1 & HumFz.hum4) >>
-                              (ETrans.et1),
-                          (LumFz.lum3 & TempFz.temp1 & HumFz.hum3) >>
-                              (ETrans.et1),
-                          (LumFz.lum3 & TempFz.temp1 & HumFz.hum2) >>
-                              (ETrans.et1),
-                          (LumFz.lum3 & TempFz.temp1 & HumFz.hum1) >>
-                              (ETrans.et2),
-                          (LumFz.lum3 & TempFz.temp2 & HumFz.hum6) >>
-                              (ETrans.et2),
-                          (LumFz.lum3 & TempFz.temp2 & HumFz.hum5) >>
-                              (ETrans.et2),
-                          (LumFz.lum3 & TempFz.temp2 & HumFz.hum4) >>
-                              (ETrans.et2),
-                          (LumFz.lum3 & TempFz.temp2 & HumFz.hum3) >>
-                              (ETrans.et2),
-                          (LumFz.lum3 & TempFz.temp2 & HumFz.hum2) >>
-                              (ETrans.et3),
-                          (LumFz.lum3 & TempFz.temp2 & HumFz.hum1) >>
-                              (ETrans.et3),
-                          (LumFz.lum3 & TempFz.temp3 & HumFz.hum6) >>
-                              (ETrans.et3),
-                          (LumFz.lum3 & TempFz.temp3 & HumFz.hum5) >>
-                              (ETrans.et3),
-                          (LumFz.lum3 & TempFz.temp3 & HumFz.hum4) >>
-                              (ETrans.et3),
-                          (LumFz.lum3 & TempFz.temp3 & HumFz.hum3) >>
-                              (ETrans.et4),
-                          (LumFz.lum3 & TempFz.temp3 & HumFz.hum2) >>
-                              (ETrans.et4),
-                          (LumFz.lum3 & TempFz.temp3 & HumFz.hum1) >>
-                              (ETrans.et4),
-                          (LumFz.lum3 & TempFz.temp4 & HumFz.hum6) >>
-                              (ETrans.et4),
-                          (LumFz.lum3 & TempFz.temp4 & HumFz.hum5) >>
-                              (ETrans.et5),
-                          (LumFz.lum3 & TempFz.temp4 & HumFz.hum4) >>
-                              (ETrans.et5),
-                          (LumFz.lum3 & TempFz.temp4 & HumFz.hum3) >>
-                              (ETrans.et5),
-                          (LumFz.lum3 & TempFz.temp4 & HumFz.hum2) >>
-                              (ETrans.et5),
-                          (LumFz.lum3 & TempFz.temp4 & HumFz.hum1) >>
-                              (ETrans.et5),
-                          (LumFz.lum3 & TempFz.temp5 & HumFz.hum6) >>
-                              (ETrans.et6),
-                          (LumFz.lum3 & TempFz.temp5 & HumFz.hum5) >>
-                              (ETrans.et6),
-                          (LumFz.lum3 & TempFz.temp5 & HumFz.hum4) >>
-                              (ETrans.et6),
-                          (LumFz.lum3 & TempFz.temp5 & HumFz.hum3) >>
-                              (ETrans.et6),
-                          (LumFz.lum3 & TempFz.temp5 & HumFz.hum2) >>
-                              (ETrans.et6),
-                          (LumFz.lum3 & TempFz.temp5 & HumFz.hum1) >>
-                              (ETrans.et7),
-                          (LumFz.lum3 & TempFz.temp6 & HumFz.hum6) >>
-                              (ETrans.et7),
-                          (LumFz.lum3 & TempFz.temp6 & HumFz.hum5) >>
-                              (ETrans.et7),
-                          (LumFz.lum3 & TempFz.temp6 & HumFz.hum4) >>
-                              (ETrans.et7),
-                          (LumFz.lum3 & TempFz.temp6 & HumFz.hum3) >>
-                              (ETrans.et7),
-                          (LumFz.lum3 & TempFz.temp6 & HumFz.hum2) >>
-                              (ETrans.et8),
-                          (LumFz.lum3 & TempFz.temp6 & HumFz.hum1) >>
-                              (ETrans.et8),
-                          (LumFz.lum3 & TempFz.temp7 & HumFz.hum6) >>
-                              (ETrans.et8),
-                          (LumFz.lum3 & TempFz.temp7 & HumFz.hum5) >>
-                              (ETrans.et8),
-                          (LumFz.lum3 & TempFz.temp7 & HumFz.hum4) >>
-                              (ETrans.et9),
-                          (LumFz.lum3 & TempFz.temp7 & HumFz.hum3) >>
-                              (ETrans.et9),
-                          (LumFz.lum3 & TempFz.temp7 & HumFz.hum2) >>
-                              (ETrans.et9),
-                          (LumFz.lum3 & TempFz.temp7 & HumFz.hum1) >>
-                              (ETrans.et9),
-                          (LumFz.lum3 & TempFz.temp8 & HumFz.hum6) >>
-                              (ETrans.et9),
-                          (LumFz.lum3 & TempFz.temp8 & HumFz.hum5) >>
-                              (ETrans.et9),
-                          (LumFz.lum3 & TempFz.temp8 & HumFz.hum4) >>
-                              (ETrans.et10),
-                          (LumFz.lum3 & TempFz.temp8 & HumFz.hum3) >>
-                              (ETrans.et10),
-                          (LumFz.lum3 & TempFz.temp8 & HumFz.hum2) >>
-                              (ETrans.et10),
-                          (LumFz.lum3 & TempFz.temp8 & HumFz.hum1) >>
-                              (ETrans.et10),
-                          //Lum4
-                          (LumFz.lum4 & TempFz.temp1 & HumFz.hum6) >>
-                              (ETrans.et1),
-                          (LumFz.lum4 & TempFz.temp1 & HumFz.hum5) >>
-                              (ETrans.et1),
-                          (LumFz.lum4 & TempFz.temp1 & HumFz.hum4) >>
-                              (ETrans.et1),
-                          (LumFz.lum4 & TempFz.temp1 & HumFz.hum3) >>
-                              (ETrans.et1),
-                          (LumFz.lum4 & TempFz.temp1 & HumFz.hum2) >>
-                              (ETrans.et1),
-                          (LumFz.lum4 & TempFz.temp1 & HumFz.hum1) >>
-                              (ETrans.et2),
-                          (LumFz.lum4 & TempFz.temp2 & HumFz.hum6) >>
-                              (ETrans.et2),
-                          (LumFz.lum4 & TempFz.temp2 & HumFz.hum5) >>
-                              (ETrans.et2),
-                          (LumFz.lum4 & TempFz.temp2 & HumFz.hum4) >>
-                              (ETrans.et2),
-                          (LumFz.lum4 & TempFz.temp2 & HumFz.hum3) >>
-                              (ETrans.et2),
-                          (LumFz.lum4 & TempFz.temp2 & HumFz.hum2) >>
-                              (ETrans.et3),
-                          (LumFz.lum4 & TempFz.temp2 & HumFz.hum1) >>
-                              (ETrans.et3),
-                          (LumFz.lum4 & TempFz.temp3 & HumFz.hum6) >>
-                              (ETrans.et3),
-                          (LumFz.lum4 & TempFz.temp3 & HumFz.hum5) >>
-                              (ETrans.et3),
-                          (LumFz.lum4 & TempFz.temp3 & HumFz.hum4) >>
-                              (ETrans.et4),
-                          (LumFz.lum4 & TempFz.temp3 & HumFz.hum3) >>
-                              (ETrans.et4),
-                          (LumFz.lum4 & TempFz.temp3 & HumFz.hum2) >>
-                              (ETrans.et4),
-                          (LumFz.lum4 & TempFz.temp3 & HumFz.hum1) >>
-                              (ETrans.et4),
-                          (LumFz.lum4 & TempFz.temp4 & HumFz.hum6) >>
-                              (ETrans.et4),
-                          (LumFz.lum4 & TempFz.temp4 & HumFz.hum5) >>
-                              (ETrans.et5),
-                          (LumFz.lum4 & TempFz.temp4 & HumFz.hum4) >>
-                              (ETrans.et5),
-                          (LumFz.lum4 & TempFz.temp4 & HumFz.hum3) >>
-                              (ETrans.et5),
-                          (LumFz.lum4 & TempFz.temp4 & HumFz.hum2) >>
-                              (ETrans.et5),
-                          (LumFz.lum4 & TempFz.temp4 & HumFz.hum1) >>
-                              (ETrans.et5),
-                          (LumFz.lum4 & TempFz.temp5 & HumFz.hum6) >>
-                              (ETrans.et6),
-                          (LumFz.lum4 & TempFz.temp5 & HumFz.hum5) >>
-                              (ETrans.et6),
-                          (LumFz.lum4 & TempFz.temp5 & HumFz.hum4) >>
-                              (ETrans.et6),
-                          (LumFz.lum4 & TempFz.temp5 & HumFz.hum3) >>
-                              (ETrans.et6),
-                          (LumFz.lum4 & TempFz.temp5 & HumFz.hum2) >>
-                              (ETrans.et6),
-                          (LumFz.lum4 & TempFz.temp5 & HumFz.hum1) >>
-                              (ETrans.et7),
-                          (LumFz.lum4 & TempFz.temp6 & HumFz.hum6) >>
-                              (ETrans.et7),
-                          (LumFz.lum4 & TempFz.temp6 & HumFz.hum5) >>
-                              (ETrans.et7),
-                          (LumFz.lum4 & TempFz.temp6 & HumFz.hum4) >>
-                              (ETrans.et7),
-                          (LumFz.lum4 & TempFz.temp6 & HumFz.hum3) >>
-                              (ETrans.et7),
-                          (LumFz.lum4 & TempFz.temp6 & HumFz.hum2) >>
-                              (ETrans.et8),
-                          (LumFz.lum4 & TempFz.temp6 & HumFz.hum1) >>
-                              (ETrans.et8),
-                          (LumFz.lum4 & TempFz.temp7 & HumFz.hum6) >>
-                              (ETrans.et8),
-                          (LumFz.lum4 & TempFz.temp7 & HumFz.hum5) >>
-                              (ETrans.et8),
-                          (LumFz.lum4 & TempFz.temp7 & HumFz.hum4) >>
-                              (ETrans.et9),
-                          (LumFz.lum4 & TempFz.temp7 & HumFz.hum3) >>
-                              (ETrans.et9),
-                          (LumFz.lum4 & TempFz.temp7 & HumFz.hum2) >>
-                              (ETrans.et9),
-                          (LumFz.lum4 & TempFz.temp7 & HumFz.hum1) >>
-                              (ETrans.et9),
-                          (LumFz.lum4 & TempFz.temp8 & HumFz.hum6) >>
-                              (ETrans.et9),
-                          (LumFz.lum4 & TempFz.temp8 & HumFz.hum5) >>
-                              (ETrans.et9),
-                          (LumFz.lum4 & TempFz.temp8 & HumFz.hum4) >>
-                              (ETrans.et10),
-                          (LumFz.lum4 & TempFz.temp8 & HumFz.hum3) >>
-                              (ETrans.et10),
-                          (LumFz.lum4 & TempFz.temp8 & HumFz.hum2) >>
-                              (ETrans.et10),
-                          (LumFz.lum4 & TempFz.temp8 & HumFz.hum1) >>
-                              (ETrans.et10),
-
-                          //Lum5
-                          (LumFz.lum5 & TempFz.temp1 & HumFz.hum6) >>
-                              (ETrans.et1),
-                          (LumFz.lum5 & TempFz.temp1 & HumFz.hum5) >>
-                              (ETrans.et1),
-                          (LumFz.lum5 & TempFz.temp1 & HumFz.hum4) >>
-                              (ETrans.et1),
-                          (LumFz.lum5 & TempFz.temp1 & HumFz.hum3) >>
-                              (ETrans.et1),
-                          (LumFz.lum5 & TempFz.temp1 & HumFz.hum2) >>
-                              (ETrans.et1),
-                          (LumFz.lum5 & TempFz.temp1 & HumFz.hum1) >>
-                              (ETrans.et2),
-                          (LumFz.lum5 & TempFz.temp2 & HumFz.hum6) >>
-                              (ETrans.et2),
-                          (LumFz.lum5 & TempFz.temp2 & HumFz.hum5) >>
-                              (ETrans.et2),
-                          (LumFz.lum5 & TempFz.temp2 & HumFz.hum4) >>
-                              (ETrans.et2),
-                          (LumFz.lum5 & TempFz.temp2 & HumFz.hum3) >>
-                              (ETrans.et2),
-                          (LumFz.lum5 & TempFz.temp2 & HumFz.hum2) >>
-                              (ETrans.et3),
-                          (LumFz.lum5 & TempFz.temp2 & HumFz.hum1) >>
-                              (ETrans.et3),
-                          (LumFz.lum5 & TempFz.temp3 & HumFz.hum6) >>
-                              (ETrans.et3),
-                          (LumFz.lum5 & TempFz.temp3 & HumFz.hum5) >>
-                              (ETrans.et3),
-                          (LumFz.lum5 & TempFz.temp3 & HumFz.hum4) >>
-                              (ETrans.et4),
-                          (LumFz.lum5 & TempFz.temp3 & HumFz.hum3) >>
-                              (ETrans.et4),
-                          (LumFz.lum5 & TempFz.temp3 & HumFz.hum2) >>
-                              (ETrans.et4),
-                          (LumFz.lum5 & TempFz.temp3 & HumFz.hum1) >>
-                              (ETrans.et4),
-                          (LumFz.lum5 & TempFz.temp4 & HumFz.hum6) >>
-                              (ETrans.et4),
-                          (LumFz.lum5 & TempFz.temp4 & HumFz.hum5) >>
-                              (ETrans.et5),
-                          (LumFz.lum5 & TempFz.temp4 & HumFz.hum4) >>
-                              (ETrans.et5),
-                          (LumFz.lum5 & TempFz.temp4 & HumFz.hum3) >>
-                              (ETrans.et5),
-                          (LumFz.lum5 & TempFz.temp4 & HumFz.hum2) >>
-                              (ETrans.et5),
-                          (LumFz.lum5 & TempFz.temp4 & HumFz.hum1) >>
-                              (ETrans.et5),
-                          (LumFz.lum5 & TempFz.temp5 & HumFz.hum6) >>
-                              (ETrans.et6),
-                          (LumFz.lum5 & TempFz.temp5 & HumFz.hum5) >>
-                              (ETrans.et6),
-                          (LumFz.lum5 & TempFz.temp5 & HumFz.hum4) >>
-                              (ETrans.et6),
-                          (LumFz.lum5 & TempFz.temp5 & HumFz.hum3) >>
-                              (ETrans.et6),
-                          (LumFz.lum5 & TempFz.temp5 & HumFz.hum2) >>
-                              (ETrans.et6),
-                          (LumFz.lum5 & TempFz.temp5 & HumFz.hum1) >>
-                              (ETrans.et7),
-                          (LumFz.lum5 & TempFz.temp6 & HumFz.hum6) >>
-                              (ETrans.et7),
-                          (LumFz.lum5 & TempFz.temp6 & HumFz.hum5) >>
-                              (ETrans.et7),
-                          (LumFz.lum5 & TempFz.temp6 & HumFz.hum4) >>
-                              (ETrans.et7),
-                          (LumFz.lum5 & TempFz.temp6 & HumFz.hum3) >>
-                              (ETrans.et7),
-                          (LumFz.lum5 & TempFz.temp6 & HumFz.hum2) >>
-                              (ETrans.et8),
-                          (LumFz.lum5 & TempFz.temp6 & HumFz.hum1) >>
-                              (ETrans.et8),
-                          (LumFz.lum5 & TempFz.temp7 & HumFz.hum6) >>
-                              (ETrans.et8),
-                          (LumFz.lum5 & TempFz.temp7 & HumFz.hum5) >>
-                              (ETrans.et8),
-                          (LumFz.lum5 & TempFz.temp7 & HumFz.hum4) >>
-                              (ETrans.et8),
-                          (LumFz.lum5 & TempFz.temp7 & HumFz.hum3) >>
-                              (ETrans.et9),
-                          (LumFz.lum5 & TempFz.temp7 & HumFz.hum2) >>
-                              (ETrans.et9),
-                          (LumFz.lum5 & TempFz.temp7 & HumFz.hum1) >>
-                              (ETrans.et9),
-                          (LumFz.lum5 & TempFz.temp8 & HumFz.hum6) >>
-                              (ETrans.et9),
-                          (LumFz.lum5 & TempFz.temp8 & HumFz.hum5) >>
-                              (ETrans.et10),
-                          (LumFz.lum5 & TempFz.temp8 & HumFz.hum4) >>
-                              (ETrans.et10),
-                          (LumFz.lum5 & TempFz.temp8 & HumFz.hum3) >>
-                              (ETrans.et10),
-                          (LumFz.lum5 & TempFz.temp8 & HumFz.hum2) >>
-                              (ETrans.et10),
-                          (LumFz.lum5 & TempFz.temp8 & HumFz.hum1) >>
-                              (ETrans.et10),
-
-                          //Lum6
-                          (LumFz.lum6 & TempFz.temp1 & HumFz.hum6) >>
-                              (ETrans.et1),
-                          (LumFz.lum6 & TempFz.temp1 & HumFz.hum5) >>
-                              (ETrans.et1),
-                          (LumFz.lum6 & TempFz.temp1 & HumFz.hum4) >>
-                              (ETrans.et1),
-                          (LumFz.lum6 & TempFz.temp1 & HumFz.hum3) >>
-                              (ETrans.et1),
-                          (LumFz.lum6 & TempFz.temp1 & HumFz.hum2) >>
-                              (ETrans.et1),
-                          (LumFz.lum6 & TempFz.temp1 & HumFz.hum1) >>
-                              (ETrans.et2),
-                          (LumFz.lum6 & TempFz.temp2 & HumFz.hum6) >>
-                              (ETrans.et2),
-                          (LumFz.lum6 & TempFz.temp2 & HumFz.hum5) >>
-                              (ETrans.et2),
-                          (LumFz.lum6 & TempFz.temp2 & HumFz.hum4) >>
-                              (ETrans.et2),
-                          (LumFz.lum6 & TempFz.temp2 & HumFz.hum3) >>
-                              (ETrans.et2),
-                          (LumFz.lum6 & TempFz.temp2 & HumFz.hum2) >>
-                              (ETrans.et3),
-                          (LumFz.lum6 & TempFz.temp2 & HumFz.hum1) >>
-                              (ETrans.et3),
-                          (LumFz.lum6 & TempFz.temp3 & HumFz.hum6) >>
-                              (ETrans.et3),
-                          (LumFz.lum6 & TempFz.temp3 & HumFz.hum5) >>
-                              (ETrans.et3),
-                          (LumFz.lum6 & TempFz.temp3 & HumFz.hum4) >>
-                              (ETrans.et4),
-                          (LumFz.lum6 & TempFz.temp3 & HumFz.hum3) >>
-                              (ETrans.et4),
-                          (LumFz.lum6 & TempFz.temp3 & HumFz.hum2) >>
-                              (ETrans.et4),
-                          (LumFz.lum6 & TempFz.temp3 & HumFz.hum1) >>
-                              (ETrans.et4),
-                          (LumFz.lum6 & TempFz.temp4 & HumFz.hum6) >>
-                              (ETrans.et4),
-                          (LumFz.lum6 & TempFz.temp4 & HumFz.hum5) >>
-                              (ETrans.et5),
-                          (LumFz.lum6 & TempFz.temp4 & HumFz.hum4) >>
-                              (ETrans.et5),
-                          (LumFz.lum6 & TempFz.temp4 & HumFz.hum3) >>
-                              (ETrans.et5),
-                          (LumFz.lum6 & TempFz.temp4 & HumFz.hum2) >>
-                              (ETrans.et5),
-                          (LumFz.lum6 & TempFz.temp4 & HumFz.hum1) >>
-                              (ETrans.et5),
-                          (LumFz.lum6 & TempFz.temp5 & HumFz.hum6) >>
-                              (ETrans.et6),
-                          (LumFz.lum6 & TempFz.temp5 & HumFz.hum5) >>
-                              (ETrans.et6),
-                          (LumFz.lum6 & TempFz.temp5 & HumFz.hum4) >>
-                              (ETrans.et6),
-                          (LumFz.lum6 & TempFz.temp5 & HumFz.hum3) >>
-                              (ETrans.et6),
-                          (LumFz.lum6 & TempFz.temp5 & HumFz.hum2) >>
-                              (ETrans.et6),
-                          (LumFz.lum6 & TempFz.temp5 & HumFz.hum1) >>
-                              (ETrans.et7),
-                          (LumFz.lum6 & TempFz.temp6 & HumFz.hum6) >>
-                              (ETrans.et7),
-                          (LumFz.lum6 & TempFz.temp6 & HumFz.hum5) >>
-                              (ETrans.et7),
-                          (LumFz.lum6 & TempFz.temp6 & HumFz.hum4) >>
-                              (ETrans.et7),
-                          (LumFz.lum6 & TempFz.temp6 & HumFz.hum3) >>
-                              (ETrans.et8),
-                          (LumFz.lum6 & TempFz.temp6 & HumFz.hum2) >>
-                              (ETrans.et8),
-                          (LumFz.lum6 & TempFz.temp6 & HumFz.hum1) >>
-                              (ETrans.et8),
-                          (LumFz.lum6 & TempFz.temp7 & HumFz.hum6) >>
-                              (ETrans.et8),
-                          (LumFz.lum6 & TempFz.temp7 & HumFz.hum5) >>
-                              (ETrans.et8),
-                          (LumFz.lum6 & TempFz.temp7 & HumFz.hum4) >>
-                              (ETrans.et9),
-                          (LumFz.lum6 & TempFz.temp7 & HumFz.hum3) >>
-                              (ETrans.et9),
-                          (LumFz.lum6 & TempFz.temp7 & HumFz.hum2) >>
-                              (ETrans.et9),
-                          (LumFz.lum6 & TempFz.temp7 & HumFz.hum1) >>
-                              (ETrans.et9),
-                          (LumFz.lum6 & TempFz.temp8 & HumFz.hum6) >>
-                              (ETrans.et10),
-                          (LumFz.lum6 & TempFz.temp8 & HumFz.hum5) >>
-                              (ETrans.et10),
-                          (LumFz.lum6 & TempFz.temp8 & HumFz.hum4) >>
-                              (ETrans.et10),
-                          (LumFz.lum6 & TempFz.temp8 & HumFz.hum3) >>
-                              (ETrans.et10),
-                          (LumFz.lum6 & TempFz.temp8 & HumFz.hum2) >>
-                              (ETrans.et10),
-                          (LumFz.lum6 & TempFz.temp8 & HumFz.hum1) >>
-                              (ETrans.et10),
-
-                          //Lum7
-                          (LumFz.lum7 & TempFz.temp1 & HumFz.hum6) >>
-                              (ETrans.et1),
-                          (LumFz.lum7 & TempFz.temp1 & HumFz.hum5) >>
-                              (ETrans.et1),
-                          (LumFz.lum7 & TempFz.temp1 & HumFz.hum4) >>
-                              (ETrans.et1),
-                          (LumFz.lum7 & TempFz.temp1 & HumFz.hum3) >>
-                              (ETrans.et1),
-                          (LumFz.lum7 & TempFz.temp1 & HumFz.hum2) >>
-                              (ETrans.et1),
-                          (LumFz.lum7 & TempFz.temp1 & HumFz.hum1) >>
-                              (ETrans.et2),
-                          (LumFz.lum7 & TempFz.temp2 & HumFz.hum6) >>
-                              (ETrans.et2),
-                          (LumFz.lum7 & TempFz.temp2 & HumFz.hum5) >>
-                              (ETrans.et2),
-                          (LumFz.lum7 & TempFz.temp2 & HumFz.hum4) >>
-                              (ETrans.et2),
-                          (LumFz.lum7 & TempFz.temp2 & HumFz.hum3) >>
-                              (ETrans.et2),
-                          (LumFz.lum7 & TempFz.temp2 & HumFz.hum2) >>
-                              (ETrans.et3),
-                          (LumFz.lum7 & TempFz.temp2 & HumFz.hum1) >>
-                              (ETrans.et3),
-                          (LumFz.lum7 & TempFz.temp3 & HumFz.hum6) >>
-                              (ETrans.et3),
-                          (LumFz.lum7 & TempFz.temp3 & HumFz.hum5) >>
-                              (ETrans.et3),
-                          (LumFz.lum7 & TempFz.temp3 & HumFz.hum4) >>
-                              (ETrans.et4),
-                          (LumFz.lum7 & TempFz.temp3 & HumFz.hum3) >>
-                              (ETrans.et4),
-                          (LumFz.lum7 & TempFz.temp3 & HumFz.hum2) >>
-                              (ETrans.et4),
-                          (LumFz.lum7 & TempFz.temp3 & HumFz.hum1) >>
-                              (ETrans.et4),
-                          (LumFz.lum7 & TempFz.temp4 & HumFz.hum6) >>
-                              (ETrans.et4),
-                          (LumFz.lum7 & TempFz.temp4 & HumFz.hum5) >>
-                              (ETrans.et5),
-                          (LumFz.lum7 & TempFz.temp4 & HumFz.hum4) >>
-                              (ETrans.et5),
-                          (LumFz.lum7 & TempFz.temp4 & HumFz.hum3) >>
-                              (ETrans.et5),
-                          (LumFz.lum7 & TempFz.temp4 & HumFz.hum2) >>
-                              (ETrans.et5),
-                          (LumFz.lum7 & TempFz.temp4 & HumFz.hum1) >>
-                              (ETrans.et5),
-                          (LumFz.lum7 & TempFz.temp5 & HumFz.hum6) >>
-                              (ETrans.et6),
-                          (LumFz.lum7 & TempFz.temp5 & HumFz.hum5) >>
-                              (ETrans.et6),
-                          (LumFz.lum7 & TempFz.temp5 & HumFz.hum4) >>
-                              (ETrans.et6),
-                          (LumFz.lum7 & TempFz.temp5 & HumFz.hum3) >>
-                              (ETrans.et6),
-                          (LumFz.lum7 & TempFz.temp5 & HumFz.hum2) >>
-                              (ETrans.et6),
-                          (LumFz.lum7 & TempFz.temp5 & HumFz.hum1) >>
-                              (ETrans.et7),
-                          (LumFz.lum7 & TempFz.temp6 & HumFz.hum6) >>
-                              (ETrans.et7),
-                          (LumFz.lum7 & TempFz.temp6 & HumFz.hum5) >>
-                              (ETrans.et7),
-                          (LumFz.lum7 & TempFz.temp6 & HumFz.hum4) >>
-                              (ETrans.et7),
-                          (LumFz.lum7 & TempFz.temp6 & HumFz.hum3) >>
-                              (ETrans.et8),
-                          (LumFz.lum7 & TempFz.temp6 & HumFz.hum2) >>
-                              (ETrans.et8),
-                          (LumFz.lum7 & TempFz.temp6 & HumFz.hum1) >>
-                              (ETrans.et8),
-                          (LumFz.lum7 & TempFz.temp7 & HumFz.hum6) >>
-                              (ETrans.et8),
-                          (LumFz.lum7 & TempFz.temp7 & HumFz.hum5) >>
-                              (ETrans.et8),
-                          (LumFz.lum7 & TempFz.temp7 & HumFz.hum4) >>
-                              (ETrans.et9),
-                          (LumFz.lum7 & TempFz.temp7 & HumFz.hum3) >>
-                              (ETrans.et9),
-                          (LumFz.lum7 & TempFz.temp7 & HumFz.hum2) >>
-                              (ETrans.et9),
-                          (LumFz.lum7 & TempFz.temp7 & HumFz.hum1) >>
-                              (ETrans.et9),
-                          (LumFz.lum7 & TempFz.temp8 & HumFz.hum6) >>
-                              (ETrans.et10),
-                          (LumFz.lum7 & TempFz.temp8 & HumFz.hum5) >>
-                              (ETrans.et10),
-                          (LumFz.lum7 & TempFz.temp8 & HumFz.hum4) >>
-                              (ETrans.et10),
-                          (LumFz.lum7 & TempFz.temp8 & HumFz.hum3) >>
-                              (ETrans.et10),
-                          (LumFz.lum7 & TempFz.temp8 & HumFz.hum2) >>
-                              (ETrans.et10),
-                          (LumFz.lum7 & TempFz.temp8 & HumFz.hum1) >>
-                              (ETrans.et10),
-
-                          //Lum8
-                          (LumFz.lum8 & TempFz.temp1 & HumFz.hum6) >>
-                              (ETrans.et1),
-                          (LumFz.lum8 & TempFz.temp1 & HumFz.hum5) >>
-                              (ETrans.et1),
-                          (LumFz.lum8 & TempFz.temp1 & HumFz.hum4) >>
-                              (ETrans.et1),
-                          (LumFz.lum8 & TempFz.temp1 & HumFz.hum3) >>
-                              (ETrans.et1),
-                          (LumFz.lum8 & TempFz.temp1 & HumFz.hum2) >>
-                              (ETrans.et1),
-                          (LumFz.lum8 & TempFz.temp1 & HumFz.hum1) >>
-                              (ETrans.et2),
-                          (LumFz.lum8 & TempFz.temp2 & HumFz.hum6) >>
-                              (ETrans.et2),
-                          (LumFz.lum8 & TempFz.temp2 & HumFz.hum5) >>
-                              (ETrans.et2),
-                          (LumFz.lum8 & TempFz.temp2 & HumFz.hum4) >>
-                              (ETrans.et2),
-                          (LumFz.lum8 & TempFz.temp2 & HumFz.hum3) >>
-                              (ETrans.et2),
-                          (LumFz.lum8 & TempFz.temp2 & HumFz.hum2) >>
-                              (ETrans.et3),
-                          (LumFz.lum8 & TempFz.temp2 & HumFz.hum1) >>
-                              (ETrans.et3),
-                          (LumFz.lum8 & TempFz.temp3 & HumFz.hum6) >>
-                              (ETrans.et3),
-                          (LumFz.lum8 & TempFz.temp3 & HumFz.hum5) >>
-                              (ETrans.et3),
-                          (LumFz.lum8 & TempFz.temp3 & HumFz.hum4) >>
-                              (ETrans.et4),
-                          (LumFz.lum8 & TempFz.temp3 & HumFz.hum3) >>
-                              (ETrans.et4),
-                          (LumFz.lum8 & TempFz.temp3 & HumFz.hum2) >>
-                              (ETrans.et4),
-                          (LumFz.lum8 & TempFz.temp3 & HumFz.hum1) >>
-                              (ETrans.et4),
-                          (LumFz.lum8 & TempFz.temp4 & HumFz.hum6) >>
-                              (ETrans.et4),
-                          (LumFz.lum8 & TempFz.temp4 & HumFz.hum5) >>
-                              (ETrans.et5),
-                          (LumFz.lum8 & TempFz.temp4 & HumFz.hum4) >>
-                              (ETrans.et5),
-                          (LumFz.lum8 & TempFz.temp4 & HumFz.hum3) >>
-                              (ETrans.et5),
-                          (LumFz.lum8 & TempFz.temp4 & HumFz.hum2) >>
-                              (ETrans.et5),
-                          (LumFz.lum8 & TempFz.temp4 & HumFz.hum1) >>
-                              (ETrans.et5),
-                          (LumFz.lum8 & TempFz.temp5 & HumFz.hum6) >>
-                              (ETrans.et6),
-                          (LumFz.lum8 & TempFz.temp5 & HumFz.hum5) >>
-                              (ETrans.et6),
-                          (LumFz.lum8 & TempFz.temp5 & HumFz.hum4) >>
-                              (ETrans.et6),
-                          (LumFz.lum8 & TempFz.temp5 & HumFz.hum3) >>
-                              (ETrans.et6),
-                          (LumFz.lum8 & TempFz.temp5 & HumFz.hum2) >>
-                              (ETrans.et6),
-                          (LumFz.lum8 & TempFz.temp5 & HumFz.hum1) >>
-                              (ETrans.et7),
-                          (LumFz.lum8 & TempFz.temp6 & HumFz.hum6) >>
-                              (ETrans.et7),
-                          (LumFz.lum8 & TempFz.temp6 & HumFz.hum5) >>
-                              (ETrans.et7),
-                          (LumFz.lum8 & TempFz.temp6 & HumFz.hum4) >>
-                              (ETrans.et7),
-                          (LumFz.lum8 & TempFz.temp6 & HumFz.hum3) >>
-                              (ETrans.et8),
-                          (LumFz.lum8 & TempFz.temp6 & HumFz.hum2) >>
-                              (ETrans.et8),
-                          (LumFz.lum8 & TempFz.temp6 & HumFz.hum1) >>
-                              (ETrans.et8),
-                          (LumFz.lum8 & TempFz.temp7 & HumFz.hum6) >>
-                              (ETrans.et8),
-                          (LumFz.lum8 & TempFz.temp7 & HumFz.hum5) >>
-                              (ETrans.et8),
-                          (LumFz.lum8 & TempFz.temp7 & HumFz.hum4) >>
-                              (ETrans.et9),
-                          (LumFz.lum8 & TempFz.temp7 & HumFz.hum3) >>
-                              (ETrans.et9),
-                          (LumFz.lum8 & TempFz.temp7 & HumFz.hum2) >>
-                              (ETrans.et9),
-                          (LumFz.lum8 & TempFz.temp7 & HumFz.hum1) >>
-                              (ETrans.et9),
-                          (LumFz.lum8 & TempFz.temp8 & HumFz.hum6) >>
-                              (ETrans.et10),
-                          (LumFz.lum8 & TempFz.temp8 & HumFz.hum5) >>
-                              (ETrans.et10),
-                          (LumFz.lum8 & TempFz.temp8 & HumFz.hum4) >>
-                              (ETrans.et10),
-                          (LumFz.lum8 & TempFz.temp8 & HumFz.hum3) >>
-                              (ETrans.et10),
-                          (LumFz.lum8 & TempFz.temp8 & HumFz.hum2) >>
-                              (ETrans.et10),
-                          (LumFz.lum8 & TempFz.temp8 & HumFz.hum1) >>
-                              (ETrans.et10),
-
-                          //Lum9
-                          (LumFz.lum9 & TempFz.temp1 & HumFz.hum6) >>
-                              (ETrans.et1),
-                          (LumFz.lum9 & TempFz.temp1 & HumFz.hum5) >>
-                              (ETrans.et1),
-                          (LumFz.lum9 & TempFz.temp1 & HumFz.hum4) >>
-                              (ETrans.et1),
-                          (LumFz.lum9 & TempFz.temp1 & HumFz.hum3) >>
-                              (ETrans.et1),
-                          (LumFz.lum9 & TempFz.temp1 & HumFz.hum2) >>
-                              (ETrans.et1),
-                          (LumFz.lum9 & TempFz.temp1 & HumFz.hum1) >>
-                              (ETrans.et2),
-                          (LumFz.lum9 & TempFz.temp2 & HumFz.hum6) >>
-                              (ETrans.et2),
-                          (LumFz.lum9 & TempFz.temp2 & HumFz.hum5) >>
-                              (ETrans.et2),
-                          (LumFz.lum9 & TempFz.temp2 & HumFz.hum4) >>
-                              (ETrans.et2),
-                          (LumFz.lum9 & TempFz.temp2 & HumFz.hum3) >>
-                              (ETrans.et2),
-                          (LumFz.lum9 & TempFz.temp2 & HumFz.hum2) >>
-                              (ETrans.et3),
-                          (LumFz.lum9 & TempFz.temp2 & HumFz.hum1) >>
-                              (ETrans.et3),
-                          (LumFz.lum9 & TempFz.temp3 & HumFz.hum6) >>
-                              (ETrans.et3),
-                          (LumFz.lum9 & TempFz.temp3 & HumFz.hum5) >>
-                              (ETrans.et3),
-                          (LumFz.lum9 & TempFz.temp3 & HumFz.hum4) >>
-                              (ETrans.et4),
-                          (LumFz.lum9 & TempFz.temp3 & HumFz.hum3) >>
-                              (ETrans.et4),
-                          (LumFz.lum9 & TempFz.temp3 & HumFz.hum2) >>
-                              (ETrans.et4),
-                          (LumFz.lum9 & TempFz.temp3 & HumFz.hum1) >>
-                              (ETrans.et4),
-                          (LumFz.lum9 & TempFz.temp4 & HumFz.hum6) >>
-                              (ETrans.et4),
-                          (LumFz.lum9 & TempFz.temp4 & HumFz.hum5) >>
-                              (ETrans.et5),
-                          (LumFz.lum9 & TempFz.temp4 & HumFz.hum4) >>
-                              (ETrans.et5),
-                          (LumFz.lum9 & TempFz.temp4 & HumFz.hum3) >>
-                              (ETrans.et5),
-                          (LumFz.lum9 & TempFz.temp4 & HumFz.hum2) >>
-                              (ETrans.et5),
-                          (LumFz.lum9 & TempFz.temp4 & HumFz.hum1) >>
-                              (ETrans.et5),
-                          (LumFz.lum9 & TempFz.temp5 & HumFz.hum6) >>
-                              (ETrans.et6),
-                          (LumFz.lum9 & TempFz.temp5 & HumFz.hum5) >>
-                              (ETrans.et6),
-                          (LumFz.lum9 & TempFz.temp5 & HumFz.hum4) >>
-                              (ETrans.et6),
-                          (LumFz.lum9 & TempFz.temp5 & HumFz.hum3) >>
-                              (ETrans.et6),
-                          (LumFz.lum9 & TempFz.temp5 & HumFz.hum2) >>
-                              (ETrans.et6),
-                          (LumFz.lum9 & TempFz.temp5 & HumFz.hum1) >>
-                              (ETrans.et7),
-                          (LumFz.lum9 & TempFz.temp6 & HumFz.hum6) >>
-                              (ETrans.et7),
-                          (LumFz.lum9 & TempFz.temp6 & HumFz.hum5) >>
-                              (ETrans.et7),
-                          (LumFz.lum9 & TempFz.temp6 & HumFz.hum4) >>
-                              (ETrans.et7),
-                          (LumFz.lum9 & TempFz.temp6 & HumFz.hum3) >>
-                              (ETrans.et8),
-                          (LumFz.lum9 & TempFz.temp6 & HumFz.hum2) >>
-                              (ETrans.et8),
-                          (LumFz.lum9 & TempFz.temp6 & HumFz.hum1) >>
-                              (ETrans.et8),
-                          (LumFz.lum9 & TempFz.temp7 & HumFz.hum6) >>
-                              (ETrans.et8),
-                          (LumFz.lum9 & TempFz.temp7 & HumFz.hum5) >>
-                              (ETrans.et8),
-                          (LumFz.lum9 & TempFz.temp7 & HumFz.hum4) >>
-                              (ETrans.et9),
-                          (LumFz.lum9 & TempFz.temp7 & HumFz.hum3) >>
-                              (ETrans.et9),
-                          (LumFz.lum9 & TempFz.temp7 & HumFz.hum2) >>
-                              (ETrans.et9),
-                          (LumFz.lum9 & TempFz.temp7 & HumFz.hum1) >>
-                              (ETrans.et9),
-                          (LumFz.lum9 & TempFz.temp8 & HumFz.hum6) >>
-                              (ETrans.et10),
-                          (LumFz.lum9 & TempFz.temp8 & HumFz.hum5) >>
-                              (ETrans.et10),
-                          (LumFz.lum9 & TempFz.temp8 & HumFz.hum4) >>
-                              (ETrans.et10),
-                          (LumFz.lum9 & TempFz.temp8 & HumFz.hum3) >>
-                              (ETrans.et10),
-                          (LumFz.lum9 & TempFz.temp8 & HumFz.hum2) >>
-                              (ETrans.et10),
-                          (LumFz.lum9 & TempFz.temp8 & HumFz.hum1) >>
-                              (ETrans.et10)
-                        ]);
-
                         var evatranspiration = ETrans.createOutputPlaceholder();
                         evatrans.resolve(inputs: [
                           LumFz.assign(
-                              int.parse('${data.docs[index]['Light_Record']}')),
+                              luxRecord.round() == 0 ? 1 : luxRecord.round()),
                           TempFz.assign(
-                              int.parse('${data.docs[index]['Temp_Record']}')),
+                              tempRecord.round() == 0 ? 1 : tempRecord.round()),
                           HumFz.assign(
-                              int.parse('${data.docs[index]['Hum_Record']}'))
+                              humRecord.round() == 0 ? 1 : humRecord.round())
                         ], outputs: [
                           evatranspiration
                         ]);
@@ -1064,10 +629,11 @@ class _PlantInfoState extends State<PlantInfo> {
                         //print(evatranspiration.crispValue);
                         var crispValue = evatranspiration.crispValue;
 
-                        double drainPerDay = crispValue * 24;
-                        double potVolume = potHeight;
-                        double drainLength = (potVolume / drainPerDay);
-                        int numOfDays = drainLength.round();
+                        double cmPerDay = (crispValue * 24) / 10;
+                        double potVolume =
+                            double.parse('${data.docs[index]['Pot_Height']}');
+                        int drainLength =
+                            ((potVolume * .75) / cmPerDay).round();
 
                         return SingleChildScrollView(
                           child: Column(children: <Widget>[
@@ -1107,7 +673,7 @@ class _PlantInfoState extends State<PlantInfo> {
                                           height: 15,
                                         ),
                                         Text(
-                                          '${data.docs[index]['Plant_Name']} $crispValue days',
+                                          '${data.docs[index]['Plant_Name']}',
                                           style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 25,
@@ -1215,44 +781,130 @@ class _PlantInfoState extends State<PlantInfo> {
                                           height: 5,
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(5),
-                                          child: ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                                foregroundColor:
-                                                    const Color.fromARGB(
-                                                        255, 199, 217, 137),
-                                                backgroundColor:
-                                                    const Color.fromARGB(
-                                                        255, 18, 64, 38),
-                                                elevation: 0,
-                                                minimumSize: const Size(70, 20),
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30)),
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        vertical: 15,
-                                                        horizontal: 30)),
-                                            onPressed: () {
-                                              Navigator.of(context)
-                                                  .push(MaterialPageRoute(
-                                                builder: (context) =>
-                                                    UpdateInfo(
-                                                  qrResult: qrResult,
+                                            padding: const EdgeInsets.all(5),
+                                            child: Row(
+                                              children: [
+                                                Expanded(
+                                                  child: ElevatedButton(
+                                                    style: ElevatedButton.styleFrom(
+                                                        foregroundColor:
+                                                            const Color.fromARGB(
+                                                                255, 199, 217, 137),
+                                                        backgroundColor:
+                                                            const Color.fromARGB(
+                                                                255, 18, 64, 38),
+                                                        elevation: 0,
+                                                        minimumSize:
+                                                            const Size(70, 20),
+                                                        shape: RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius.circular(
+                                                                    30)),
+                                                        padding:
+                                                            const EdgeInsets.symmetric(
+                                                                vertical: 15,
+                                                                horizontal: 10)),
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .push(
+                                                              MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            UpdateInfo(
+                                                          qrResult: qrResult,
+                                                        ),
+                                                      ));
+                                                    },
+                                                    child: const Text(
+                                                      'Update Pot',
+                                                      style: TextStyle(
+                                                          fontSize: 20),
+                                                    ),
+                                                  ),
                                                 ),
-                                              ));
-                                            },
-                                            child: const Text(
-                                              'Update Pot',
-                                              style: TextStyle(fontSize: 20),
-                                            ),
-                                          ),
-                                        ),
+                                                const SizedBox(
+                                                  width: 5,
+                                                ),
+                                                Expanded(
+                                                  child: ElevatedButton(
+                                                    style: ElevatedButton.styleFrom(
+                                                        foregroundColor:
+                                                            const Color.fromARGB(
+                                                                255, 199, 217, 137),
+                                                        backgroundColor:
+                                                            const Color.fromARGB(
+                                                                255, 64, 18, 23),
+                                                        elevation: 0,
+                                                        minimumSize:
+                                                            const Size(40, 20),
+                                                        shape: RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius.circular(
+                                                                    30)),
+                                                        padding:
+                                                            const EdgeInsets.symmetric(
+                                                                vertical: 15,
+                                                                horizontal: 10)),
+                                                    onPressed: () =>
+                                                        showDialog<String>(
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                              context) =>
+                                                          AlertDialog(
+                                                        title: const Text(
+                                                            "Data will be deleted permanently and you won't be able to retieve it again."),
+                                                        actions: <Widget>[
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    context),
+                                                            child: const Text(
+                                                                'Cancel'),
+                                                          ),
+                                                          TextButton(
+                                                            onPressed: () {
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .popUntil(
+                                                                      (route) =>
+                                                                          route
+                                                                              .isFirst);
+                                                              FirebaseFirestore
+                                                                  .instance
+                                                                  .collection(
+                                                                      'PLANTS')
+                                                                  .where(
+                                                                      'Plant_Id',
+                                                                      isEqualTo:
+                                                                          widget
+                                                                              .qrResult)
+                                                                  .get()
+                                                                  .then((val) => val
+                                                                      .docs
+                                                                      .forEach(
+                                                                          (doc) =>
+                                                                              {
+                                                                                doc.reference.delete()
+                                                                              }));
+                                                            },
+                                                            child: const Text(
+                                                                'Delete'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    child: const Text(
+                                                      'Delete Plant',
+                                                      style: TextStyle(
+                                                          fontSize: 20),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            )),
                                       ],
                                     ))),
                             const SizedBox(
-                              height: 40,
+                              height: 30,
                             ),
                             tempRecord == 0 &&
                                     luxRecord == 0 &&
@@ -1281,13 +933,15 @@ class _PlantInfoState extends State<PlantInfo> {
                                               color: Color.fromARGB(
                                                   255, 137, 217, 137),
                                             )),
+                                        SizedBox(
+                                          height: 40,
+                                        ),
                                       ])
                                 : Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                        Text(
-                                            "Last Data Gathered: $numOfDays days",
-                                            style: const TextStyle(
+                                        const Text("Last Data Gathered:",
+                                            style: TextStyle(
                                               fontWeight: FontWeight.w800,
                                               fontSize: 30,
                                               color: Colors.black,
@@ -1403,9 +1057,44 @@ class _PlantInfoState extends State<PlantInfo> {
                                                 )),
                                               ]),
                                         ),
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              10, 0, 10, 0),
+                                          child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                    'Water is expected to reach low level after $drainLength days'),
+                                                const SizedBox(
+                                                  width: 10,
+                                                ),
+                                                ElevatedButton(
+                                                    style: ElevatedButton.styleFrom(
+                                                        foregroundColor:
+                                                            const Color.fromARGB(
+                                                                255,
+                                                                199,
+                                                                217,
+                                                                137),
+                                                        backgroundColor:
+                                                            const Color.fromARGB(
+                                                                255, 18, 64, 38),
+                                                        elevation: 0,
+                                                        minimumSize:
+                                                            const Size(20, 10),
+                                                        padding: const EdgeInsets
+                                                                .symmetric(
+                                                            vertical: 10,
+                                                            horizontal: 10)),
+                                                    onPressed: () {},
+                                                    child: const Text(
+                                                        'Get Notified'))
+                                              ]),
+                                        )
                                       ]),
                             const SizedBox(
-                              height: 60,
+                              height: 10,
                             ),
                             Padding(
                               padding: const EdgeInsets.all(5),

@@ -1,9 +1,8 @@
-// @dart = 2.9
 import 'package:fuzzylogic/fuzzylogic.dart';
 
 class FzLum extends FuzzyVariable<int> {
-  var lum1 = FuzzySet.LeftShoulder(0, 545.5, 1091);
-  var lum2 = FuzzySet.Triangle(545.5, 1091, 1636);
+  var lum1 = FuzzySet.LeftShoulder(0, 545, 1091);
+  var lum2 = FuzzySet.Triangle(545, 1091, 1636);
   var lum3 = FuzzySet.Triangle(1091, 1636, 2182);
   var lum4 = FuzzySet.Triangle(1636, 2182, 2727);
   var lum5 = FuzzySet.Triangle(2182, 2727, 3273);
@@ -58,7 +57,7 @@ class ET extends FuzzyVariable<double> {
   var et7 = FuzzySet.Triangle(0.5, 0.6, 0.7);
   var et8 = FuzzySet.Triangle(0.6, 0.7, 0.8);
   var et9 = FuzzySet.Triangle(0.7, 0.8, 0.9);
-  var et10 = FuzzySet.RightShoulder(0.8, 0.9, 1);
+  var et10 = FuzzySet.RightShoulder(0.8, 0.9, 1.0);
 
   // ignore: non_constant_identifier_names
   ET() {

@@ -500,7 +500,7 @@ class _GatheringScreenState extends State<GatheringScreen> {
                                                         color: Colors.black87,
                                                         fontSize: 15,
                                                         fontWeight:
-                                                            FontWeight.w100,
+                                                            FontWeight.w200,
                                                         fontFamily:
                                                             'AvenirLight'),
                                                   )
@@ -544,38 +544,43 @@ class _GatheringScreenState extends State<GatheringScreen> {
                                             child: Container(
                                               alignment: Alignment.centerLeft,
                                               padding: const EdgeInsets.all(5),
-                                              child: Column(children: [
-                                                const Text(
-                                                  'Luminance:',
-                                                  style: TextStyle(
-                                                      color: Colors.black87,
-                                                      fontSize: 20,
-                                                      fontWeight:
-                                                          FontWeight.w800,
-                                                      fontFamily:
-                                                          'AvenirLight'),
-                                                ),
-                                                Text(
-                                                  illuminationresult(lux),
-                                                  style: const TextStyle(
-                                                      color: Colors.black87,
-                                                      fontSize: 15,
-                                                      fontWeight:
-                                                          FontWeight.w300,
-                                                      fontFamily:
-                                                          'AvenirLight'),
-                                                ),
-                                                Text(
-                                                  illuminationinfo,
-                                                  style: const TextStyle(
-                                                      color: Colors.black87,
-                                                      fontSize: 15,
-                                                      fontWeight:
-                                                          FontWeight.w100,
-                                                      fontFamily:
-                                                          'AvenirLight'),
-                                                )
-                                              ]),
+                                              child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    const Text(
+                                                      'Luminance:',
+                                                      style: TextStyle(
+                                                          color: Colors.black87,
+                                                          fontSize: 20,
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                          fontFamily:
+                                                              'AvenirLight'),
+                                                    ),
+                                                    Text(
+                                                      illuminationresult(lux),
+                                                      style: const TextStyle(
+                                                          color: Colors.black87,
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          fontFamily:
+                                                              'AvenirLight'),
+                                                    ),
+                                                    Text(
+                                                      illuminationinfo,
+                                                      style: const TextStyle(
+                                                          color: Colors.black87,
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.w100,
+                                                          fontFamily:
+                                                              'AvenirLight'),
+                                                    )
+                                                  ]),
                                             ),
                                           ),
                                         ]),
@@ -797,21 +802,24 @@ class _GatheringScreenState extends State<GatheringScreen> {
 
   solvePotVolume() {
     if (widget.potType == "Box/Rectangle") {
-      return ((widget.potHeight * widget.potLength * widget.potWidth) *
-              ((100 - moisture) / 100))
+      return (((widget.potHeight * widget.potLength * widget.potWidth) *
+                  ((100 - moisture) / 100)) *
+              .6)
           .round();
     } else if (widget.potType == "Truncated Cone") {
-      return (((1 / 3) *
-                  (3.14159 *
-                      widget.potHeight *
-                      (pow((widget.potTop / 2), 2) +
-                          (widget.potTop / 2) * (widget.potBase / 2) +
-                          pow((widget.potBase / 2), 2)))) *
-              ((100 - moisture) / 100))
+      return ((((1 / 3) *
+                      (3.14159 *
+                          widget.potHeight *
+                          (pow((widget.potTop / 2), 2) +
+                              (widget.potTop / 2) * (widget.potBase / 2) +
+                              pow((widget.potBase / 2), 2)))) *
+                  ((100 - moisture) / 100)) *
+              .6)
           .round();
     } else if (widget.potType == "Round") {
-      return ((3.14159 * (pow((widget.potTop / 2), 2)) * widget.potHeight) *
-              ((100 - moisture) / 100))
+      return (((3.14159 * (pow((widget.potTop / 2), 2)) * widget.potHeight) *
+                  ((100 - moisture) / 100)) *
+              .6)
           .round();
     } else {
       return 0.00;

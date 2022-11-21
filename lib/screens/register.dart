@@ -613,14 +613,14 @@ class MyCustomFormState extends State<MyCustomForm> {
                 ),
               ]),
               Padding(
-                padding: const EdgeInsets.fromLTRB(32, 10, 32, 15),
+                padding: const EdgeInsets.fromLTRB(32, 10, 32, 10),
                 child: Row(children: [
                   Expanded(
                     child: Container(
                         margin: const EdgeInsets.only(left: 0.0, right: 10.0),
                         child: const Divider(
                           color: Color.fromARGB(221, 83, 83, 83),
-                          height: 20,
+                          height: 15,
                         )),
                   ),
                   const Text(
@@ -635,7 +635,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                         margin: const EdgeInsets.only(left: 10.0, right: 0.0),
                         child: const Divider(
                           color: Color.fromARGB(221, 83, 83, 83),
-                          height: 20,
+                          height: 15,
                         )),
                   ),
                 ]),
@@ -644,7 +644,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
                 child: TextFormField(
-                  maxLines: 4,
+                  maxLines: 2,
                   decoration: textInputDecoration.copyWith(
                     labelText: 'Short Description',
                     hintText: 'Tell something about your plant...',
